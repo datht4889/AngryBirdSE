@@ -46,7 +46,6 @@ public class AmmoMechaism : MonoBehaviour
 
         isShooted = true;
         shouldFaceVelDirection = true;
-
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
