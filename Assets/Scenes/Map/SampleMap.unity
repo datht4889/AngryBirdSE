@@ -4349,10 +4349,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxNumberOfAmmos: 2
   _secondsToWaitBeforeDeathCheck: 3
-  _restartScreenObject: {fileID: 0}
-  _star1: {fileID: 0}
-  _star2: {fileID: 0}
-  _star3: {fileID: 0}
+  _restartScreenObject: {fileID: 1947295421}
+  _star1: {fileID: 1010588523}
+  _star2: {fileID: 20227473}
+  _star3: {fileID: 1566279426}
   No_Alien: 0
   _WinScene: {fileID: 1924798871}
   _LoseScene: {fileID: 553840379}

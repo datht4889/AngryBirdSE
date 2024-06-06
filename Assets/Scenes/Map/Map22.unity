@@ -2144,14 +2144,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9490a5d97d7849648e093a738c4d8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxNumberOfAmmos: 3
   _secondsToWaitBeforeDeathCheck: 3
   _restartScreenObject: {fileID: 1122302196}
   _star1: {fileID: 932450292}
   _star2: {fileID: 1112893390}
   _star3: {fileID: 777670249}
-  ScoreText: {fileID: 0}
   No_Alien: 0
   _WinScene: {fileID: 1836789548}
+  _LoseScene: {fileID: 0}
 --- !u!4 &581585987
 Transform:
   m_ObjectHideFlags: 0
@@ -2626,7 +2627,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.606, y: -1.35, z: 0.2153119}
-  m_LocalScale: {x: 15.000001, y: 1, z: 1}
+  m_LocalScale: {x: 1.024, y: 1.0239999, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1771029659}
@@ -2676,7 +2677,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 150, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0

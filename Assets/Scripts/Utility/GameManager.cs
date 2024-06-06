@@ -69,13 +69,12 @@ public class GameManager : MonoBehaviour
     public void removeAlien(Alien alien){
         _aliens.Remove(alien);
         float percent = (float)_aliens.Count / No_Alien;
-        // Debug.Log(_aliens.Count);
-        if (percent < 0.9 && percent >= 0.7){
-               AppearStar1();
-        } else if(percent >= 0.3 && percent <= 0.5){
-               AppearStar2();
+        if (percent < 0.9 && percent >= 0.66){
+                AppearStar1();
+        } else if(percent > 0 && percent < 0.66){
+                AppearStar2();
         } else if (percent == 0){
-            AppearStar3();
+                AppearStar3();
         }
 
         CheckForAllALiens();
