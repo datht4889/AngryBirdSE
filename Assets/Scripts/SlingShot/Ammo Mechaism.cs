@@ -49,18 +49,18 @@ public class AmmoMechaism : MonoBehaviour
 
     }
 
-    protected void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         shouldFaceVelDirection = false;
     }
 
-    protected void OnMouseDown()
-    {
-        if (isPowered == false){
-            PowerUp();
-            isPowered = true;
-        }
-    }
+    // protected void OnMouseDown()
+    // {
+    //     if (isPowered == false){
+    //         PowerUp();
+    //         isPowered = true;
+    //     }
+    // }
 
     public virtual void PowerUp()
     {
