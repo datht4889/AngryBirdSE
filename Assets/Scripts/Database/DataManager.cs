@@ -41,7 +41,7 @@ public class DataManager: MonoBehaviour {
         }
     }
 
-    public IEnumerator GetGold(Action<string> onCallback){
+    public IEnumerator GetGold(Action<int> onCallback){
         var userGoldData = dbReference.Child("Users").Child(UserID).Child("gold").GetValueAsync();
 
         yield return new WaitUntil(predicate: () => userGoldData.IsCompleted);
@@ -49,11 +49,16 @@ public class DataManager: MonoBehaviour {
         if (userGoldData != null){
             DataSnapshot snapshot = userGoldData.Result;
 
-            onCallback.Invoke(((int)snapshot.Value).ToString());
+            onCallback.Invoke((int)snapshot.Value);
         }
     }
 
     public void GetUserInfo(){
-
+        StartCoroutine(GetName((string name) => {
+            nameText.text = "Name: "+name;
+        }));
+        StartCoroutine(GetGold((int gold) => {
+            goldText.text = "Gold: "+gold.ToString();
+        }));
     }
 }
