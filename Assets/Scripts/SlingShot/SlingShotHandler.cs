@@ -22,7 +22,6 @@ public class SlingShotHandler : MonoBehaviour
 
     [Header("Scripts")]
     [SerializeField] private SlingShotArea slingShotArea;
-    [SerializeField] private CameraManager cameraManager;
 
     [Header("Ammo")]
     [SerializeField] private AmmoMechaism ammoPrefab;
@@ -51,7 +50,6 @@ public class SlingShotHandler : MonoBehaviour
         if ((isClicking || isTouching) && slingShotArea.isWithinSlingshotArea())
         {
             clickWithinArea = true;
-            cameraManager.SwitchToFollowCam(spawnedAmmo.transform);
         }
 
         if ((isClicking || isTouching) && clickWithinArea && ammoOnSlingShot)
@@ -68,19 +66,9 @@ public class SlingShotHandler : MonoBehaviour
             if (GameManager.instances.HasEnoughAmmos())
             {
                 clickWithinArea = false;
-<<<<<<< Updated upstream
-=======
-                ammoOnSlingShot = false;
-
->>>>>>> Stashed changes
                 spawnedAmmo.ShootAmmo(direction, shotForce);
                 GameManager.instances.UseAmmo();
-<<<<<<< Updated upstream
                 ammoOnSlingShot = false;
-=======
-
-                
->>>>>>> Stashed changes
                 SetLines(centerPosition.position);
 
                 if (GameManager.instances.HasEnoughAmmos())
@@ -155,12 +143,7 @@ public class SlingShotHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(TimeBetweenAmmoRespawn);
         spawnAmmo();
-<<<<<<< Updated upstream
     }
-=======
-        cameraManager.SwitchToIdleCam();
-    }    
->>>>>>> Stashed changes
 
     private IEnumerator LoseScence()
     {
