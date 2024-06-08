@@ -47,6 +47,9 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+*.dylib
+*.dylib.meta
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -60,6 +63,10 @@ sysinfo.txt
 *.aab
 *.unitypackage
 *.app
+
+# Firebase
+*.bundle
+*.so
 
 # Crashlytics generated file
 crashlytics-build.properties
