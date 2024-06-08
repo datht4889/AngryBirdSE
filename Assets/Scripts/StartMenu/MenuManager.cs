@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 
     public GameObject Button;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,5 +42,14 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void MuteAudio()
+    {
+        Panel.GetComponent<Animator>().SetTrigger("Mute");
+    }
 
+    public void UnMuteAudio()
+    {   
+        Panel.GetComponent<Animator>().SetTrigger("Unmute");
+        
+    }
 }
