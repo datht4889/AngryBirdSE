@@ -31,4 +31,15 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(1,LoadSceneMode.Single);
     }
+
+    public static void PlayDefault()
+    {
+        SceneManager.LoadScene(2,LoadSceneMode.Single);
+    }
+    public static void Quit()
+    {
+        Application.Quit();
+    }
+
+
 }
