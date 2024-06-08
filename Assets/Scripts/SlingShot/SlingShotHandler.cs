@@ -75,6 +75,9 @@ public class SlingShotHandler : MonoBehaviour
                 {
                     StartCoroutine(SpawnAmmoAfterTime());
                 }
+                else {
+                    StartCoroutine(LoseScence());
+                }
             }
         }
     }
@@ -142,5 +145,10 @@ public class SlingShotHandler : MonoBehaviour
         spawnAmmo();
     }
 
+    private IEnumerator LoseScence()
+    {
+        yield return new WaitForSeconds(TimeBetweenAmmoRespawn);
+        GameManager.instances.CheckForAllALiens();
+    }
     #endregion
 }
