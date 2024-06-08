@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void CheckForAllALiens(){
-        Debug.Log(_usedNumberOfAmmos);
     
         if (_aliens.Count == 0){
             ScoreScript.scoreValue += 1000 * (MaxNumberOfAmmos - _usedNumberOfAmmos);
