@@ -3,6 +3,7 @@ using System.Collections;
 using Firebase;
 using Firebase.Database;
 using Google.MiniJSON;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,12 @@ using UnityEngine.UI;
 public class DataManager: MonoBehaviour {
 
     public InputField username;
-    public InputField gold;
+    public InputField password;
+    // public InputField gold;
     private string UserID;
 
-    public Text nameText;
-    public Text goldText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI goldText;
 
     DatabaseReference dbReference;
     void Start() {
@@ -23,14 +25,14 @@ public class DataManager: MonoBehaviour {
     }
 
     public void CreateUser(){
-        User newUser = new User(username.text, int.Parse(gold.text));
+        User newUser = new User(username.text, password.text, 0);
         string json = JsonUtility.ToJson(newUser);
 
         dbReference.Child("users").Child(UserID).SetRawJsonValueAsync(json);
     }
 
     public IEnumerator GetName(Action<string> onCallback){
-        var userNameData = dbReference.Child("Users").Child(UserID).Child("name").GetValueAsync();
+        var userNameData = dbReference.Child("users").Child(UserID).Child("name").GetValueAsync();
 
         yield return new WaitUntil(predicate: () => userNameData.IsCompleted);
 
@@ -41,24 +43,28 @@ public class DataManager: MonoBehaviour {
         }
     }
 
-    public IEnumerator GetGold(Action<int> onCallback){
-        var userGoldData = dbReference.Child("Users").Child(UserID).Child("gold").GetValueAsync();
+    // public IEnumerator GetGold(Action<int> onCallback){
+    //     var userGoldData = dbReference.Child("users").Child(UserID).Child("gold").GetValueAsync();
 
-        yield return new WaitUntil(predicate: () => userGoldData.IsCompleted);
+    //     yield return new WaitUntil(predicate: () => userGoldData.IsCompleted);
 
-        if (userGoldData != null){
-            DataSnapshot snapshot = userGoldData.Result;
+    //     if (userGoldData != null){
+    //         DataSnapshot snapshot = userGoldData.Result;
 
-            onCallback.Invoke((int)snapshot.Value);
-        }
-    }
+    //         onCallback.Invoke(int.Parse(snapshot.Value.ToString()));
+    //     }
+    // }
 
-    public void GetUserInfo(){
-        StartCoroutine(GetName((string name) => {
-            nameText.text = "Name: "+name;
-        }));
-        StartCoroutine(GetGold((int gold) => {
-            goldText.text = "Gold: "+gold.ToString();
-        }));
-    }
+    // public void GetUserInfo(){
+    //     StartCoroutine(GetName((string name) => {
+    //         nameText.text = "Name: "+name;
+    //     }));
+    //     StartCoroutine(GetGold((int gold) => {
+    //         goldText.text = "Gold: "+gold.ToString();
+    //     }));
+    // }
+
+    // public void UpdateName(){
+
+    // }
 }
