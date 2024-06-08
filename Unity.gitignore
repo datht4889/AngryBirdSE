@@ -64,6 +64,10 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+# Firebase
+*.bundle
+*.so
+
 # Crashlytics generated file
 crashlytics-build.properties
 
