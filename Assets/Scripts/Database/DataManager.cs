@@ -43,26 +43,26 @@ public class DataManager: MonoBehaviour {
         }
     }
 
-    // public IEnumerator GetGold(Action<int> onCallback){
-    //     var userGoldData = dbReference.Child("users").Child(UserID).Child("gold").GetValueAsync();
+    public IEnumerator GetGold(Action<int> onCallback){
+        var userGoldData = dbReference.Child("users").Child(UserID).Child("gold").GetValueAsync();
 
-    //     yield return new WaitUntil(predicate: () => userGoldData.IsCompleted);
+        yield return new WaitUntil(predicate: () => userGoldData.IsCompleted);
 
-    //     if (userGoldData != null){
-    //         DataSnapshot snapshot = userGoldData.Result;
+        if (userGoldData != null){
+            DataSnapshot snapshot = userGoldData.Result;
 
-    //         onCallback.Invoke(int.Parse(snapshot.Value.ToString()));
-    //     }
-    // }
+            onCallback.Invoke(int.Parse(snapshot.Value.ToString()));
+        }
+    }
 
-    // public void GetUserInfo(){
-    //     StartCoroutine(GetName((string name) => {
-    //         nameText.text = "Name: "+name;
-    //     }));
-    //     StartCoroutine(GetGold((int gold) => {
-    //         goldText.text = "Gold: "+gold.ToString();
-    //     }));
-    // }
+    public void GetUserInfo(){
+        StartCoroutine(GetName((string name) => {
+            nameText.text = "Name: "+name;
+        }));
+        StartCoroutine(GetGold((int gold) => {
+            goldText.text = "Gold: "+gold.ToString();
+        }));
+    }
 
     // public void UpdateName(){
 
