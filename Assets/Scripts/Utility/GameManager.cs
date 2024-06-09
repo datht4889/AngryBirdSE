@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
                 AppearStar3();
         }
 
-        CheckForAllALiens();
+        //CheckForAllALiens();
     }
 
     public void CheckForAllALiens(){

@@ -2370,7 +2370,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.960574
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4613,6 +4613,9 @@ MonoBehaviour:
   _star1: {fileID: 1010588523}
   _star2: {fileID: 20227473}
   _star3: {fileID: 1566279426}
+  _star_final_1: {fileID: 0}
+  _star_final_2: {fileID: 0}
+  _star_final_3: {fileID: 0}
   No_Alien: 0
   _WinScene: {fileID: 1924798871}
   _LoseScene: {fileID: 553840379}
@@ -4803,7 +4806,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6.3363094
+    OrthographicSize: 20
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

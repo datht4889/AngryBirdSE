@@ -63,7 +63,7 @@ public class SlingShotHandler : MonoBehaviour
         bool wasReleased = (Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame) ||
                            (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasReleasedThisFrame);
 
-        if (wasReleased && ammoOnSlingShot)
+        if (wasReleased && ammoOnSlingShot && clickWithinArea)
         {
             if (GameManager.instances.HasEnoughAmmos())
             {
@@ -79,7 +79,7 @@ public class SlingShotHandler : MonoBehaviour
                     StartCoroutine(SpawnAmmoAfterTime());
                 }
                 else {
-                    StartCoroutine(LoseScence());
+                    StartCoroutine(CheckLoseWin());
                 }
             }
         }
@@ -149,10 +149,30 @@ public class SlingShotHandler : MonoBehaviour
         cameraManager.SwitchToIdleCam();
     }
 
-    private IEnumerator LoseScence()
+    private IEnumerator CheckLoseWin()
     {
-        yield return new WaitForSeconds(TimeBetweenAmmoRespawn);
+        
+        bool allStopped = false;
+
+        while (!allStopped)
+        {
+            allStopped = true;
+            Rigidbody2D[] allRigidbodies = FindObjectsOfType<Rigidbody2D>();
+            foreach (Rigidbody2D rb in allRigidbodies)
+            {
+                if (rb.velocity.magnitude > 0.1f)
+                {
+                    allStopped = false;
+                    break;
+                }
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        
         GameManager.instances.CheckForAllALiens();
     }
+  
     #endregion
 }
