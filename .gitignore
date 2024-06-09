@@ -87,4 +87,8 @@ Assets/Firebase.meta
 Assets/Editor Default Resources.meta
 Assets/ExternalDependencyManager.meta
 Assets/GeneratedLocalRepo.meta
+<<<<<<< HEAD
 Assets/GeneratedLocalRepo/Firebase.meta
+=======
+Assets/GeneratedLocalRepo/Firebase.meta
+>>>>>>> dat/database
