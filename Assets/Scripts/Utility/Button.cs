@@ -12,6 +12,10 @@ public class Button : MonoBehaviour
     [SerializeField] private GameObject PauseButton;
     public GameObject PausePanel;
 
+    public GameObject SettingPanel;
+
+    public GameObject SettingButton;   
+
     private void Awake(){
 
     }
@@ -33,5 +37,21 @@ public class Button : MonoBehaviour
     public void Exit2Menu(){
         SceneManager.LoadScene(0,LoadSceneMode.Single);
         Time.timeScale = 1;
+    }
+
+    public void Settings()
+    {
+        SettingPanel.GetComponent<Animator>().SetTrigger("Pop");
+    }
+
+    public void MuteAudio()
+    {
+        SettingPanel.GetComponent<Animator>().SetTrigger("Mute");
+    }
+
+    public void UnMuteAudio()
+    {   
+        SettingPanel.GetComponent<Animator>().SetTrigger("Unmute");
+        
     }
 }
