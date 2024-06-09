@@ -36,6 +36,7 @@ public class MenuManager : MonoBehaviour
     public static void PlayDefault()
     {
         SceneManager.LoadScene(2,LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
     public static void Quit()
     {
