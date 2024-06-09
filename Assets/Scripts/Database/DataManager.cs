@@ -97,6 +97,7 @@ public class DataManager : MonoBehaviour
                             {
                                 UserID = userSnapshot.Key;
                                 logInFailed.text = "Login successful!";
+                                Button.instances.Exit2Menu();
                                 // Optionally, load user data or transition to another scene
                             }
                             else
