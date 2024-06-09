@@ -82,3 +82,5 @@ crashlytics-build.properties
 Assets/Firebase.meta
 /Assets/Firebase
 /Assets/GeneratedLocalRepo/Firebase
+/Assets/ExternalDependencyManager
+/Assets/Firebase
