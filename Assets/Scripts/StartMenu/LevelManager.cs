@@ -33,15 +33,18 @@ public class LevelManager : MonoBehaviour
     public static void LoadMap1()
     {
         SceneManager.LoadScene(2,LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
 
     public static void LoadMap2()
     {
         SceneManager.LoadScene(3,LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
 
     public static void LoadMap3()
     {
         SceneManager.LoadScene(4,LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
 }
