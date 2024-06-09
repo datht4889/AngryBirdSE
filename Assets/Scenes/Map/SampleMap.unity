@@ -2370,7 +2370,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.960574
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4608,11 +4608,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxNumberOfAmmos: 2
-  _secondsToWaitBeforeDeathCheck: 3
   _restartScreenObject: {fileID: 1947295421}
   _star1: {fileID: 1010588523}
   _star2: {fileID: 20227473}
   _star3: {fileID: 1566279426}
+  _star_final_1: {fileID: 0}
+  _star_final_2: {fileID: 0}
+  _star_final_3: {fileID: 0}
   No_Alien: 0
   _WinScene: {fileID: 1924798871}
   _LoseScene: {fileID: 553840379}
@@ -4803,7 +4805,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6.3363094
+    OrthographicSize: 20
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -7961,6 +7963,7 @@ MonoBehaviour:
   ammoPrefab: {fileID: 4764607311373088178, guid: 15b11ef7b581e4e37a1b6ef2946fba71, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
+  isShooting: 0
 --- !u!1 &1655970313
 GameObject:
   m_ObjectHideFlags: 0
@@ -8404,8 +8407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554b2adecc1820a498260494dc297ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slingShotArea: {fileID: 79508991}
   idleCam: {fileID: 1868813476}
   followCam: {fileID: 1655970314}
+  maxDragDistance: 1000
+  dragSensitivity: 0.01
 --- !u!4 &1734940532
 Transform:
   m_ObjectHideFlags: 0

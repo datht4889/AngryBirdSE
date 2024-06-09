@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
 
     private IconHandler _iconHandler;
 
-    [SerializeField] private float _secondsToWaitBeforeDeathCheck = 3f;
     [SerializeField] private GameObject _restartScreenObject;
     [SerializeField] private GameObject _star1;
     [SerializeField] private GameObject _star2;
     [SerializeField] private GameObject _star3;
+    [SerializeField] private GameObject _star_final_1;
+    [SerializeField] private GameObject _star_final_2;
+    [SerializeField] private GameObject _star_final_3;
 
     // [SerializeField] private GameObject ScoreText;
 
@@ -77,31 +79,33 @@ public class GameManager : MonoBehaviour
                 AppearStar3();
         }
 
-        CheckForAllALiens();
+        CheckForEndGame();
     }
 
-    public void CheckForAllALiens(){
-    
+    public bool CheckForEndGame(){
+        
         if (_aliens.Count == 0){
             ScoreScript.scoreValue += 1000 * (MaxNumberOfAmmos - _usedNumberOfAmmos);
             WinGame();
-        } else {
-            if (_usedNumberOfAmmos >= MaxNumberOfAmmos) {
-                LoseGame();
-            }
+            return true;
         }
+        return false;
+        
     }
+
     #endregion
 
     #region Win/Lose
 
     private void WinGame(){
         // _restartScreenObject.SetActive(true);
+        
         Time.timeScale = 0;
         _WinScene.SetActive(true);
+
     }
 
-    private void LoseGame(){
+    public void LoseGame(){
         // _restartScreenObject.SetActive(true);
         Time.timeScale = 0;
         _LoseScene.SetActive(true);
@@ -115,14 +119,17 @@ public class GameManager : MonoBehaviour
     #region star
     public void AppearStar1(){
         Destroy(_star1);
+        Destroy(_star_final_1);
     }
 
     public void AppearStar2(){
         Destroy(_star2);
+        Destroy(_star_final_2);
     }
 
     public void AppearStar3(){
         Destroy(_star3);
+        Destroy(_star_final_3);
     }
     #endregion
 }

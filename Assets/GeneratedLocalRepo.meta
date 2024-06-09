@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/GeneratedLocalRepo.meta
 guid: 9cc576c993e5d2846a354f29ee536244
+========
+guid: 8a860ab099ba1014a91b093c0414c684
+>>>>>>>> main:Assets/Sprites/Complete_GUI_Essential_Pack_Free_Version.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
