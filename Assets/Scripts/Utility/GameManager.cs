@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     private IconHandler _iconHandler;
 
-    [SerializeField] private float _secondsToWaitBeforeDeathCheck = 3f;
     [SerializeField] private GameObject _restartScreenObject;
     [SerializeField] private GameObject _star1;
     [SerializeField] private GameObject _star2;

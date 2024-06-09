@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SlingShotHandler : MonoBehaviour
 {
@@ -30,14 +31,19 @@ public class SlingShotHandler : MonoBehaviour
     [SerializeField] private float TimeBetweenAmmoRespawn = 2f;
 
     private Vector2 slingShotLinesPosition;
-    private bool clickWithinArea;
     private bool ammoOnSlingShot;
     private AmmoMechaism spawnedAmmo;
     private Vector2 direction;
     private Vector2 directionNorm;
-
+    public bool isShooting;
+    public static SlingShotHandler instances;
     private void Awake()
     {
+        if (instances == null)
+        {
+            instances = this;
+        }
+
         leftLR.enabled = false;
         rightLR.enabled = false;
         spawnAmmo();
@@ -45,16 +51,17 @@ public class SlingShotHandler : MonoBehaviour
 
     private void Update()
     {
-        bool isTouching = Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed;
-        bool isClicking = Mouse.current != null && Mouse.current.leftButton.isPressed;
+        bool isTouching = Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
+        bool isClicking = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
 
-        if ((isClicking || isTouching) && slingShotArea.isWithinSlingshotArea())
+        
+        if ((isClicking || isTouching)  && slingShotArea.isWithinSlingshotArea())
         {
-            clickWithinArea = true;
+            isShooting = true;
             cameraManager.SwitchToFollowCam(spawnedAmmo.transform);
         }
 
-        if ((isClicking || isTouching) && clickWithinArea && ammoOnSlingShot)
+        if (isShooting && ammoOnSlingShot)
         {
             DrawSlingShot();
             PositionAndRotateAmmo();
@@ -63,11 +70,11 @@ public class SlingShotHandler : MonoBehaviour
         bool wasReleased = (Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame) ||
                            (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasReleasedThisFrame);
 
-        if (wasReleased && ammoOnSlingShot && clickWithinArea)
+        if (wasReleased && ammoOnSlingShot && isShooting)
         {
             if (GameManager.instances.HasEnoughAmmos())
             {
-                clickWithinArea = false;
+                isShooting = false;
                 ammoOnSlingShot = false;
                 spawnedAmmo.ShootAmmo(direction, shotForce);
                 GameManager.instances.UseAmmo();
