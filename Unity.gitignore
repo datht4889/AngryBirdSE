@@ -66,7 +66,9 @@ sysinfo.txt
 
 # Firebase
 *.bundle
+*.bundle.meta
 *.so
+*.so.meta
 
 # Crashlytics generated file
 crashlytics-build.properties
