@@ -1962,7 +1962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxNumberOfAmmos: 2
-  _secondsToWaitBeforeDeathCheck: 3
   _restartScreenObject: {fileID: 344037502}
   _star1: {fileID: 1131805910}
   _star2: {fileID: 1862930525}
@@ -3267,8 +3266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554b2adecc1820a498260494dc297ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slingShotArea: {fileID: 1410821666}
   idleCam: {fileID: 1902083362}
   followCam: {fileID: 2060931026}
+  maxDragDistance: 1000
+  dragSensitivity: 0.01
 --- !u!4 &944040381
 Transform:
   m_ObjectHideFlags: 0
@@ -9136,6 +9138,7 @@ MonoBehaviour:
   ammoPrefab: {fileID: 857623370451572515, guid: cd60d009af5d9fa4382c447ab5b2aa36, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
+  isShooting: 0
 --- !u!4 &2092418911
 Transform:
   m_ObjectHideFlags: 0

@@ -747,7 +747,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.960574
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3162,6 +3162,7 @@ MonoBehaviour:
   ammoPrefab: {fileID: 4764607311373088178, guid: 15b11ef7b581e4e37a1b6ef2946fba71, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
+  isShooting: 0
 --- !u!4 &719328490
 Transform:
   m_ObjectHideFlags: 0
@@ -4409,8 +4410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554b2adecc1820a498260494dc297ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slingShotArea: {fileID: 68852990}
   idleCam: {fileID: 1680250042}
   followCam: {fileID: 1823342806}
+  maxDragDistance: 1000
+  dragSensitivity: 0.01
 --- !u!4 &955899046
 Transform:
   m_ObjectHideFlags: 0
@@ -8108,8 +8112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9490a5d97d7849648e093a738c4d8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfAmmos: 2
-  _secondsToWaitBeforeDeathCheck: 3
+  MaxNumberOfAmmos: 10
   _restartScreenObject: {fileID: 1341521863}
   _star1: {fileID: 1341521862}
   _star2: {fileID: 1341521861}

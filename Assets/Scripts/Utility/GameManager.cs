@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     private IconHandler _iconHandler;
 
-    [SerializeField] private float _secondsToWaitBeforeDeathCheck = 3f;
     [SerializeField] private GameObject _restartScreenObject;
     [SerializeField] private GameObject _star1;
     [SerializeField] private GameObject _star2;
@@ -80,21 +79,20 @@ public class GameManager : MonoBehaviour
                 AppearStar3();
         }
 
-        //CheckForAllALiens();
+        CheckForEndGame();
     }
 
-    public void CheckForAllALiens(){
-        Debug.Log(_usedNumberOfAmmos);
-    
+    public bool CheckForEndGame(){
+        
         if (_aliens.Count == 0){
             ScoreScript.scoreValue += 1000 * (MaxNumberOfAmmos - _usedNumberOfAmmos);
             WinGame();
-        } else {
-            if (_usedNumberOfAmmos >= MaxNumberOfAmmos) {
-                LoseGame();
-            }
+            return true;
         }
+        return false;
+        
     }
+
     #endregion
 
     #region Win/Lose
@@ -107,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void LoseGame(){
+    public void LoseGame(){
         // _restartScreenObject.SetActive(true);
         Time.timeScale = 0;
         _LoseScene.SetActive(true);
