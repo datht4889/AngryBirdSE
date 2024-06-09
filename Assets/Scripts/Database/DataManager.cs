@@ -28,6 +28,9 @@ public class DataManager : MonoBehaviour
     void Start()
     {
         OpenLogIn();
+        logInPassword.contentType = TMP_InputField.ContentType.Password;
+        signUpPassword.contentType = TMP_InputField.ContentType.Password;
+        signUpConfirmPassword.contentType = TMP_InputField.ContentType.Password;
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
             if (task.Result == DependencyStatus.Available)
