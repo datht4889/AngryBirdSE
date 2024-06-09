@@ -78,9 +78,10 @@ public class SlingShotHandler : MonoBehaviour
                 {
                     StartCoroutine(SpawnAmmoAfterTime());
                 }
-                else {
+                else { 
                     StartCoroutine(CheckLoseWin());
                 }
+               
             }
         }
     }
@@ -155,7 +156,7 @@ public class SlingShotHandler : MonoBehaviour
         bool allStopped = false;
 
         while (!allStopped)
-        {
+        {   
             allStopped = true;
             Rigidbody2D[] allRigidbodies = FindObjectsOfType<Rigidbody2D>();
             foreach (Rigidbody2D rb in allRigidbodies)
@@ -171,7 +172,11 @@ public class SlingShotHandler : MonoBehaviour
         }
 
         
-        GameManager.instances.CheckForAllALiens();
+        if (!GameManager.instances.CheckForEndGame())
+        {
+
+            GameManager.instances.LoseGame();
+        }
     }
   
     #endregion
