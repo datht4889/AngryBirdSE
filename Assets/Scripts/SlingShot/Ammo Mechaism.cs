@@ -48,9 +48,14 @@ public class AmmoMechaism : MonoBehaviour
         shouldFaceVelDirection = true;
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
+    protected virtual void OnCollisionEnter2D(Collision2D collision){
         shouldFaceVelDirection = false;
+
+        float impactVelocity = collision.relativeVelocity.magnitude;
+        if (impactVelocity >= 3f && isPowered == false){
+            PowerUp();
+            isPowered = true;
+        }
     }
 
     // protected void OnMouseDown()
