@@ -49,15 +49,15 @@ public class ExplosionAmmo : AmmoMechaism
             Gizmos.DrawWireSphere(transform.position, fieldofImpact);
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision){
-        shouldFaceVelDirection = false;
+    // protected override void OnCollisionEnter2D(Collision2D collision){
+    //     shouldFaceVelDirection = false;
 
-        float impactVelocity = collision.relativeVelocity.magnitude;
-        if (impactVelocity >= 3f && isPowered == false){
-            PowerUp();
-            isPowered = true;
-        }
-    }
+    //     float impactVelocity = collision.relativeVelocity.magnitude;
+    //     if (impactVelocity >= 3f && isPowered == false){
+    //         PowerUp();
+    //         isPowered = true;
+    //     }
+    // }
 
     public override void PowerUp(){
             explode();
