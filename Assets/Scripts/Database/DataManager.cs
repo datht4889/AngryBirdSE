@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
+    public static DataManager dataManager;
     public TMP_InputField logInUsername;
     public TMP_InputField logInPassword;
     public TMP_InputField signUpUsername;
@@ -26,7 +27,7 @@ public class DataManager : MonoBehaviour
     private string UserID;
     private DatabaseReference dbReference;
 
-    public static Button instances;
+    // public static Button instances;
 
     void Start()
     {
@@ -191,6 +192,9 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public void LogOut(){
+        OpenLogIn();
+    }
 
     public IEnumerator GetName(Action<string> onCallback)
     {

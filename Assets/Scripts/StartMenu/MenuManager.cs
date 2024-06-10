@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public GameObject Panel;
 
     public GameObject Button;
+    public GameObject userPage;
 
 
     // Start is called before the first frame update
@@ -52,5 +53,13 @@ public class MenuManager : MonoBehaviour
     {   
         Panel.GetComponent<Animator>().SetTrigger("Unmute");
         
+    }
+
+    public void LogOut(){
+        DataManager.dataManager.LogOut();
+    }
+
+    public void GetUserInfo(){
+
     }
 }
