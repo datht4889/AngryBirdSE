@@ -9,24 +9,6 @@ using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour
 {
-<<<<<<< HEAD
-    public TMP_InputField username;
-    public TMP_InputField password;
-    // public InputField gold;
-
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI goldText;
-
-    public Canvas logInPage;
-    public Canvas signUpPage;
-    public Canvas forgortPasswordPage;
-
-    private string UserID;
-    private DatabaseReference dbReference;
-
-    void Start()
-    {
-=======
     public TMP_InputField logInUsername;
     public TMP_InputField logInPassword;
     public TMP_InputField signUpUsername;
@@ -49,7 +31,6 @@ public class DataManager : MonoBehaviour
         logInPassword.contentType = TMP_InputField.ContentType.Password;
         signUpPassword.contentType = TMP_InputField.ContentType.Password;
         signUpConfirmPassword.contentType = TMP_InputField.ContentType.Password;
->>>>>>> dat/database
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
             if (task.Result == DependencyStatus.Available)
@@ -63,72 +44,11 @@ public class DataManager : MonoBehaviour
                 Debug.LogError($"Could not resolve all Firebase dependencies: {task.Result}");
             }
         });
-<<<<<<< HEAD
-
-        TextMeshProUGUI usernamePlaceholder = username.placeholder as TextMeshProUGUI;
-        usernamePlaceholder.text = "username";
-        TextMeshProUGUI passwordPlaceholder = password.placeholder as TextMeshProUGUI;
-        passwordPlaceholder.text = "password";
     }
 
-    public void OpenSignUp(){
 
-    }
-
-    public void OpenForgortPassword(){
-
-    }
-
-    public void CreateUser()
+    public void OpenLogIn()
     {
-        string enteredUsername = username.text;
-
-        // Check if the username already exists
-        dbReference.Child("users").OrderByChild("username").EqualTo(enteredUsername).GetValueAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-
-                if (snapshot.Exists)
-                {
-                    Debug.LogError("Username already exists. Please choose another username.");
-                }
-                else
-                {
-                    // Username does not exist, proceed with user creation
-                    UserID = Guid.NewGuid().ToString();
-                    User newUser = new User(enteredUsername, password.text, 0);
-                    string json = JsonUtility.ToJson(newUser);
-
-                    dbReference.Child("users").Child(UserID).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
-                    {
-                        if (task.IsCompleted)
-                        {
-                            Debug.Log("Data written successfully!");
-                        }
-                        else
-                        {
-                            Debug.LogError("Error writing data: " + task.Exception);
-                        }
-                    });
-                }
-            }
-            else
-            {
-                Debug.LogError("Error checking username: " + task.Exception);
-            }
-        });
-    }
-
-    public IEnumerator GetName(Action<string> onCallback)
-    {
-        var userNameData = dbReference.Child("users").Child(UserID).Child("username").GetValueAsync();
-=======
-    }
-
-
-    public void OpenLogIn(){
         logInPage.SetActive(true);
         signUpPage.SetActive(false);
         // forgortPasswordPage.SetActive(false);
@@ -137,7 +57,8 @@ public class DataManager : MonoBehaviour
         TextMeshProUGUI logInPasswordPlaceholder = logInPassword.placeholder as TextMeshProUGUI;
         logInPasswordPlaceholder.text = "password";
     }
-    public void OpenSignUp(){
+    public void OpenSignUp()
+    {
         logInPage.SetActive(false);
         signUpPage.SetActive(true);
         // forgortPasswordPage.SetActive(false);
@@ -152,22 +73,19 @@ public class DataManager : MonoBehaviour
     //     signUpPage.SetActive(false);
     //     forgortPasswordPage.SetActive(true);
     // }
->>>>>>> dat/database
 
-    public void LogIn(){
+    public void LogIn()
+    {
         string enteredUsername = logInUsername.text;
         string enteredPassword = logInPassword.text;
 
-<<<<<<< HEAD
-        if (userNameData != null && userNameData.Result.Exists)
+        if (string.IsNullOrEmpty(enteredUsername) || string.IsNullOrEmpty(enteredPassword))
         {
-            DataSnapshot snapshot = userNameData.Result;
-            onCallback.Invoke(snapshot.Value.ToString());
-=======
-        if(string.IsNullOrEmpty(enteredUsername)||string.IsNullOrEmpty(enteredPassword)){
             // logInFailed.SetActive(true);
             logInFailed.text = "Username and Password cannot be empty";
-        }else{
+        }
+        else
+        {
             dbReference.Child("users").OrderByChild("username").EqualTo(enteredUsername).GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
@@ -203,16 +121,9 @@ public class DataManager : MonoBehaviour
                     logInFailed.text = "Error checking username: " + task.Exception;
                 }
             });
->>>>>>> dat/database
-        }
-        else
-        {
-            Debug.LogError("Error retrieving username data");
         }
     }
 
-<<<<<<< HEAD
-=======
     public void SignUp()
     {
         string enteredUsername = signUpUsername.text;
@@ -220,10 +131,13 @@ public class DataManager : MonoBehaviour
         string confirmedPassword = signUpConfirmPassword.text;
 
         // Check if the username already exists
-        if(string.IsNullOrEmpty(enteredUsername)||string.IsNullOrEmpty(enteredPassword)||string.IsNullOrEmpty(confirmedPassword)){
+        if (string.IsNullOrEmpty(enteredUsername) || string.IsNullOrEmpty(enteredPassword) || string.IsNullOrEmpty(confirmedPassword))
+        {
             // logInFailed.SetActive(true);
             signUpFailed.text = "Username and Password cannot be empty";
-        } else{
+        }
+        else
+        {
             dbReference.Child("users").OrderByChild("username").EqualTo(enteredUsername).GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
@@ -244,21 +158,21 @@ public class DataManager : MonoBehaviour
                         // {
                         //     // Passwords match, proceed with user creation
                         Debug.Log("else");
-                            UserID = Guid.NewGuid().ToString();
-                            User newUser = new User(enteredUsername, enteredPassword, 0);
-                            string json = JsonUtility.ToJson(newUser);
+                        UserID = Guid.NewGuid().ToString();
+                        User newUser = new User(enteredUsername, enteredPassword, 0);
+                        string json = JsonUtility.ToJson(newUser);
 
-                            dbReference.Child("users").Child(UserID).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
+                        dbReference.Child("users").Child(UserID).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
+                        {
+                            if (task.IsCompleted)
                             {
-                                if (task.IsCompleted)
-                                {
-                                    signUpFailed.text = "Sign up successfully!";
-                                }
-                                else
-                                {
-                                    signUpFailed.text = "Error sign up: " + task.Exception;
-                                }
-                            });
+                                signUpFailed.text = "Sign up successfully!";
+                            }
+                            else
+                            {
+                                signUpFailed.text = "Error sign up: " + task.Exception;
+                            }
+                        });
                         // }
                         // else
                         // {
@@ -294,7 +208,6 @@ public class DataManager : MonoBehaviour
         }
     }
 
->>>>>>> dat/database
     public IEnumerator GetGold(Action<int> onCallback)
     {
         var userGoldData = dbReference.Child("users").Child(UserID).Child("gold").GetValueAsync();
@@ -312,58 +225,6 @@ public class DataManager : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-    public void GetUserInfo()
-    {
-        StartCoroutine(GetName((string name) =>
-        {
-            nameText.text = "Username: " + name;
-        }));
-        StartCoroutine(GetGold((int gold) =>
-        {
-            goldText.text = "Gold: " + gold.ToString();
-        }));
-    }
-
-    public void UpdateName()
-    {
-        string newName = nameText.text.Replace("Username: ", "");
-        dbReference.Child("users").Child(UserID).Child("username").SetValueAsync(newName).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCompleted)
-            {
-                Debug.Log("Username updated successfully!");
-            }
-            else
-            {
-                Debug.LogError("Error updating username: " + task.Exception);
-            }
-        });
-    }
-
-    public void UpdateGold()
-    {
-        string goldStr = goldText.text.Replace("Gold: ", "");
-        if (int.TryParse(goldStr, out int goldValue))
-        {
-            dbReference.Child("users").Child(UserID).Child("gold").SetValueAsync(goldValue).ContinueWithOnMainThread(task =>
-            {
-                if (task.IsCompleted)
-                {
-                    Debug.Log("Gold updated successfully!");
-                }
-                else
-                {
-                    Debug.LogError("Error updating gold: " + task.Exception);
-                }
-            });
-        }
-        else
-        {
-            Debug.LogError("Invalid gold value");
-        }
-    }
-=======
     // public void GetUserInfo()
     // {
     //     StartCoroutine(GetName((string name) =>
@@ -416,5 +277,4 @@ public class DataManager : MonoBehaviour
     // }
 
 
->>>>>>> dat/database
 }
