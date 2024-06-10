@@ -6,6 +6,7 @@ using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class DataManager : MonoBehaviour
 
     private string UserID;
     private DatabaseReference dbReference;
+
+    public static Button instances;
 
     void Start()
     {
@@ -47,8 +50,7 @@ public class DataManager : MonoBehaviour
     }
 
 
-    public void OpenLogIn()
-    {
+    public void OpenLogIn(){
         logInPage.SetActive(true);
         signUpPage.SetActive(false);
         // forgortPasswordPage.SetActive(false);
@@ -56,9 +58,10 @@ public class DataManager : MonoBehaviour
         logInUsernamePlaceholder.text = "username";
         TextMeshProUGUI logInPasswordPlaceholder = logInPassword.placeholder as TextMeshProUGUI;
         logInPasswordPlaceholder.text = "password";
+        logInFailed.color = Color.red;
+        signUpFailed.color = Color.red;
     }
-    public void OpenSignUp()
-    {
+    public void OpenSignUp(){
         logInPage.SetActive(false);
         signUpPage.SetActive(true);
         // forgortPasswordPage.SetActive(false);
@@ -74,18 +77,14 @@ public class DataManager : MonoBehaviour
     //     forgortPasswordPage.SetActive(true);
     // }
 
-    public void LogIn()
-    {
+    public void LogIn(){
         string enteredUsername = logInUsername.text;
         string enteredPassword = logInPassword.text;
 
-        if (string.IsNullOrEmpty(enteredUsername) || string.IsNullOrEmpty(enteredPassword))
-        {
+        if(string.IsNullOrEmpty(enteredUsername)||string.IsNullOrEmpty(enteredPassword)){
             // logInFailed.SetActive(true);
             logInFailed.text = "Username and Password cannot be empty";
-        }
-        else
-        {
+        }else{
             dbReference.Child("users").OrderByChild("username").EqualTo(enteredUsername).GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
@@ -102,8 +101,12 @@ public class DataManager : MonoBehaviour
                             if (storedPassword == enteredPassword)
                             {
                                 UserID = userSnapshot.Key;
+                                logInFailed.color = Color.green;
                                 logInFailed.text = "Login successful!";
-                                // Optionally, load user data or transition to another scene
+                                
+                                // StartScene
+                                SceneManager.LoadScene(0,LoadSceneMode.Single);
+                                Time.timeScale = 1;
                             }
                             else
                             {
@@ -131,54 +134,52 @@ public class DataManager : MonoBehaviour
         string confirmedPassword = signUpConfirmPassword.text;
 
         // Check if the username already exists
-        if (string.IsNullOrEmpty(enteredUsername) || string.IsNullOrEmpty(enteredPassword) || string.IsNullOrEmpty(confirmedPassword))
-        {
+        if(string.IsNullOrEmpty(enteredUsername)||string.IsNullOrEmpty(enteredPassword)||string.IsNullOrEmpty(confirmedPassword)){
             // logInFailed.SetActive(true);
             signUpFailed.text = "Username and Password cannot be empty";
-        }
-        else
-        {
+        } else{
             dbReference.Child("users").OrderByChild("username").EqualTo(enteredUsername).GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = task.Result;
-                    Debug.Log("task done");
 
                     if (snapshot.Exists)
                     {
                         // Username already exists, display error message
                         signUpFailed.text = "Username already exists. Please choose another username.";
-                        Debug.Log("exist");
                     }
                     else
                     {
                         // Check if the password matches the confirmed password
-                        // if (enteredPassword.Equals(confirmedPassword))
-                        // {
-                        //     // Passwords match, proceed with user creation
-                        Debug.Log("else");
-                        UserID = Guid.NewGuid().ToString();
-                        User newUser = new User(enteredUsername, enteredPassword, 0);
-                        string json = JsonUtility.ToJson(newUser);
-
-                        dbReference.Child("users").Child(UserID).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
+                        if (enteredPassword.Equals(confirmedPassword))
                         {
-                            if (task.IsCompleted)
+                            // Passwords match, proceed with user creation
+                            UserID = Guid.NewGuid().ToString();
+                            User newUser = new User(enteredUsername, enteredPassword, 0);
+                            string json = JsonUtility.ToJson(newUser);
+
+                            dbReference.Child("users").Child(UserID).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
                             {
-                                signUpFailed.text = "Sign up successfully!";
-                            }
-                            else
-                            {
-                                signUpFailed.text = "Error sign up: " + task.Exception;
-                            }
-                        });
-                        // }
-                        // else
-                        // {
-                        //     // Passwords don't match, display error message
-                        //     signUpFailed.text = "Confirm password doesn't match.";
-                        // }
+                                if (task.IsCompleted)
+                                {
+                                    logInFailed.color = Color.green;
+                                    signUpFailed.color = Color.green;
+                                    signUpFailed.text = "Sign up successfully! Please log in.";
+                                    logInFailed.text = "Sign up successfully! Please log in.";
+                                    OpenLogIn();
+                                }
+                                else
+                                {
+                                    signUpFailed.text = "Error sign up: " + task.Exception;
+                                }
+                            });
+                        }
+                        else
+                        {
+                            // Passwords don't match, display error message
+                            signUpFailed.text = "Confirm password doesn't match.";
+                        }
                     }
                 }
                 else
