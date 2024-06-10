@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1017391979343",
+    "firebase_url": "https://angiebirdse-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "angiebirdse",
+    "storage_bucket": "angiebirdse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017391979343:android:ab5d1e18a44f26e71b433a",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.AngryBird"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy1dpOvhsmavFXLOk_H17tpZWQQuiSX-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
