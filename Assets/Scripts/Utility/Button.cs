@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-    public static Button instances;
+    public static Button button;
     [SerializeField] private GameObject RestartButton;
     [SerializeField] private GameObject PauseButton;
     public GameObject PausePanel;
@@ -17,7 +17,15 @@ public class Button : MonoBehaviour
     public GameObject SettingButton;   
 
     private void Awake(){
-
+        if (button == null)
+        {
+            button = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     public void RestartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

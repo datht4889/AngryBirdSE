@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // public static DataManager dataManager;
     public GameObject Panel;
 
     public GameObject Button;
     public GameObject userPage;
-    public TextMeshProUGUI userInfo;
+    public TextMeshProUGUI usernameText;
+    public TextMeshProUGUI goldText;
 
 
     // Start is called before the first frame update
@@ -58,17 +58,22 @@ public class MenuManager : MonoBehaviour
     }
 
     public void LogOut(){
-        // DataManager.dataManager.LogOut();
+        // Load Log in scene
     }
 
     public void GetUserInfo(){
-        // StartCoroutine(DataManager.dataManager.GetGold((int gold) =>
-        // {
-        //     userInfo.text = "Gold: " + gold.ToString();
-        // }));
-        Debug.Log("info");
-        string userInfoText = DataManager.dataManager.GetUserInfo();
-        userInfo.text = userInfoText;
-        Debug.Log(userInfoText);
+        if (userPage.activeSelf==false){
+            StartCoroutine(DataManager.dataManager.GetName((string name) =>
+            {
+                usernameText.text = "Username: " + name;
+            }));
+            StartCoroutine(DataManager.dataManager.GetGold((int gold) =>
+            {
+                goldText.text = "Gold: " + gold.ToString();
+            }));
+            userPage.SetActive(true);
+        } else{
+            userPage.SetActive(false);
+        }
     }
 }

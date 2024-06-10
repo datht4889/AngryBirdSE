@@ -27,6 +27,19 @@ public class DataManager : MonoBehaviour
     private string UserID;
     private DatabaseReference dbReference;
 
+    void Awake()
+    {
+        if (dataManager == null)
+        {
+            dataManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         OpenLogIn();
@@ -230,14 +243,15 @@ public class DataManager : MonoBehaviour
 
     public string GetUserInfo()
     {
-        // StartCoroutine(GetName((string name) =>
-        // {
-        //     // nameText.text = "Username: " + name;
-        // }));
-        // StartCoroutine(GetGold((int gold) =>
-        // {
-        //     // goldText.text = "Gold: " + gold.ToString();
-        // }));
+        string goldText;
+        StartCoroutine(GetName((string name) =>
+        {
+            string nameText = "Username: " + name;
+        }));
+        StartCoroutine(GetGold((int gold) =>
+        {
+            goldText = "Gold: " + gold.ToString();
+        }));
         return $"Username: {logInUsername.text}, Password: {logInPassword.text}";
     }
 
