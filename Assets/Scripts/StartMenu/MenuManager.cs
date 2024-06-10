@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public static DataManager dataManager;
+    // public static DataManager dataManager;
     public GameObject Panel;
 
     public GameObject Button;
