@@ -230,7 +230,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 540972004}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: GetUserInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 165399018}
   - component: {fileID: 165399020}
   m_Layer: 0
-  m_Name: Hover
+  m_Name: UserInfoPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1594,7 +1594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 1397587687}
   Button: {fileID: 1104539074}
-  userPage: {fileID: 0}
+  userPage: {fileID: 165399016}
+  userInfo: {fileID: 1211751102}
 --- !u!82 &540972005
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2696,7 +2697,7 @@ GameObject:
   - component: {fileID: 1211751103}
   - component: {fileID: 1211751102}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: userInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2718,7 +2719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -775, y: 6}
+  m_AnchoredPosition: {x: -775, y: 5.999977}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1211751102

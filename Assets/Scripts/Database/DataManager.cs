@@ -27,8 +27,6 @@ public class DataManager : MonoBehaviour
     private string UserID;
     private DatabaseReference dbReference;
 
-    // public static Button instances;
-
     void Start()
     {
         OpenLogIn();
@@ -230,17 +228,18 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    // public void GetUserInfo()
-    // {
-    //     StartCoroutine(GetName((string name) =>
-    //     {
-    //         nameText.text = "Username: " + name;
-    //     }));
-    //     StartCoroutine(GetGold((int gold) =>
-    //     {
-    //         goldText.text = "Gold: " + gold.ToString();
-    //     }));
-    // }
+    public string GetUserInfo()
+    {
+        // StartCoroutine(GetName((string name) =>
+        // {
+        //     // nameText.text = "Username: " + name;
+        // }));
+        // StartCoroutine(GetGold((int gold) =>
+        // {
+        //     // goldText.text = "Gold: " + gold.ToString();
+        // }));
+        return $"Username: {logInUsername.text}, Password: {logInPassword.text}";
+    }
 
     // public void UpdateName()
     // {
