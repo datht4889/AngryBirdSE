@@ -6,6 +6,7 @@ using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class DataManager : MonoBehaviour
 
     private string UserID;
     private DatabaseReference dbReference;
+
+    public static Button instances;
 
     void Start()
     {
@@ -55,6 +58,8 @@ public class DataManager : MonoBehaviour
         logInUsernamePlaceholder.text = "username";
         TextMeshProUGUI logInPasswordPlaceholder = logInPassword.placeholder as TextMeshProUGUI;
         logInPasswordPlaceholder.text = "password";
+        logInFailed.color = Color.red;
+        signUpFailed.color = Color.red;
     }
     public void OpenSignUp(){
         logInPage.SetActive(false);
@@ -96,9 +101,12 @@ public class DataManager : MonoBehaviour
                             if (storedPassword == enteredPassword)
                             {
                                 UserID = userSnapshot.Key;
+                                logInFailed.color = Color.green;
                                 logInFailed.text = "Login successful!";
-                                Button.instances.Exit2Menu();
-                                // Optionally, load user data or transition to another scene
+                                
+                                // StartScene
+                                SceneManager.LoadScene(0,LoadSceneMode.Single);
+                                Time.timeScale = 1;
                             }
                             else
                             {
@@ -135,21 +143,18 @@ public class DataManager : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = task.Result;
-                    Debug.Log("task done");
 
                     if (snapshot.Exists)
                     {
                         // Username already exists, display error message
                         signUpFailed.text = "Username already exists. Please choose another username.";
-                        Debug.Log("exist");
                     }
                     else
                     {
                         // Check if the password matches the confirmed password
-                        // if (enteredPassword.Equals(confirmedPassword))
-                        // {
-                        //     // Passwords match, proceed with user creation
-                        Debug.Log("else");
+                        if (enteredPassword.Equals(confirmedPassword))
+                        {
+                            // Passwords match, proceed with user creation
                             UserID = Guid.NewGuid().ToString();
                             User newUser = new User(enteredUsername, enteredPassword, 0);
                             string json = JsonUtility.ToJson(newUser);
@@ -158,19 +163,23 @@ public class DataManager : MonoBehaviour
                             {
                                 if (task.IsCompleted)
                                 {
-                                    signUpFailed.text = "Sign up successfully!";
+                                    logInFailed.color = Color.green;
+                                    signUpFailed.color = Color.green;
+                                    signUpFailed.text = "Sign up successfully! Please log in.";
+                                    logInFailed.text = "Sign up successfully! Please log in.";
+                                    OpenLogIn();
                                 }
                                 else
                                 {
                                     signUpFailed.text = "Error sign up: " + task.Exception;
                                 }
                             });
-                        // }
-                        // else
-                        // {
-                        //     // Passwords don't match, display error message
-                        //     signUpFailed.text = "Confirm password doesn't match.";
-                        // }
+                        }
+                        else
+                        {
+                            // Passwords don't match, display error message
+                            signUpFailed.text = "Confirm password doesn't match.";
+                        }
                     }
                 }
                 else
