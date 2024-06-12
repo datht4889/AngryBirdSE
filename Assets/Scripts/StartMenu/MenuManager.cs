@@ -71,7 +71,6 @@ public class MenuManager : MonoBehaviour
             {
                 goldText.text = "Gold: " + gold.ToString();
             }));
-            userPage.SetActive(true);
         } else{
             userPage.SetActive(false);
         }
