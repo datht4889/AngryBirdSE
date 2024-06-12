@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
+    public static DataManager dataManager;
     public TMP_InputField logInUsername;
     public TMP_InputField logInPassword;
     public TMP_InputField signUpUsername;
@@ -26,7 +27,18 @@ public class DataManager : MonoBehaviour
     private string UserID;
     private DatabaseReference dbReference;
 
-    public static Button instances;
+    void Awake()
+    {
+        if (dataManager == null)
+        {
+            dataManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -191,6 +203,9 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public void LogOut(){
+        OpenLogIn();
+    }
 
     public IEnumerator GetName(Action<string> onCallback)
     {
@@ -226,17 +241,19 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    // public void GetUserInfo()
-    // {
-    //     StartCoroutine(GetName((string name) =>
-    //     {
-    //         nameText.text = "Username: " + name;
-    //     }));
-    //     StartCoroutine(GetGold((int gold) =>
-    //     {
-    //         goldText.text = "Gold: " + gold.ToString();
-    //     }));
-    // }
+    public string GetUserInfo()
+    {
+        string goldText;
+        StartCoroutine(GetName((string name) =>
+        {
+            string nameText = "Username: " + name;
+        }));
+        StartCoroutine(GetGold((int gold) =>
+        {
+            goldText = "Gold: " + gold.ToString();
+        }));
+        return $"Username: {logInUsername.text}, Password: {logInPassword.text}";
+    }
 
     // public void UpdateName()
     // {

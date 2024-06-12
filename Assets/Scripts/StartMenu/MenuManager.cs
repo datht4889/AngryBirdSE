@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-
     public GameObject Panel;
 
     public GameObject Button;
+    public GameObject userPage;
+    public TextMeshProUGUI usernameText;
+    public TextMeshProUGUI goldText;
 
 
     // Start is called before the first frame update
@@ -52,5 +55,25 @@ public class MenuManager : MonoBehaviour
     {   
         Panel.GetComponent<Animator>().SetTrigger("Unmute");
         
+    }
+
+    public void LogOut(){
+        // Load Log in scene
+    }
+
+    public void GetUserInfo(){
+        if (userPage.activeSelf==false){
+            StartCoroutine(DataManager.dataManager.GetName((string name) =>
+            {
+                usernameText.text = "Username: " + name;
+            }));
+            StartCoroutine(DataManager.dataManager.GetGold((int gold) =>
+            {
+                goldText.text = "Gold: " + gold.ToString();
+            }));
+            userPage.SetActive(true);
+        } else{
+            userPage.SetActive(false);
+        }
     }
 }
