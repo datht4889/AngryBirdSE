@@ -44,6 +44,14 @@ public class SlingShotHandler : MonoBehaviour
             instances = this;
         }
 
+        // Set ammoPrefab
+        ammoPrefab = Resources.Load<AmmoMechaism>("ExplosionAmmo");
+
+        if (ammoPrefab == null)
+        {
+            Debug.LogError("Ammo prefab could not be loaded. Check if the path and name are correct.");
+        }
+
         leftLR.enabled = false;
         rightLR.enabled = false;
         spawnAmmo();
