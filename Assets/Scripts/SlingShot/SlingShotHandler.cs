@@ -45,7 +45,7 @@ public class SlingShotHandler : MonoBehaviour
         }
 
         // Set ammoPrefab
-        ammoPrefab = Resources.Load<AmmoMechaism>("ExplosionAmmo");
+        ammoPrefab = Resources.Load<AmmoMechaism>("Ammo Mechaism");
 
         if (ammoPrefab == null)
         {
