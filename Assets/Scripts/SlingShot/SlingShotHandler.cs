@@ -26,7 +26,6 @@ public class SlingShotHandler : MonoBehaviour
     [SerializeField] private CameraManager cameraManager;
 
     [Header("Ammo")]
-    [SerializeField] private AmmoMechaism ammoPrefab;
     [SerializeField] private float AmmoPosOffset = 0.22f;
     [SerializeField] private float TimeBetweenAmmoRespawn = 2f;
 
@@ -37,21 +36,33 @@ public class SlingShotHandler : MonoBehaviour
     private Vector2 directionNorm;
     public bool isShooting;
     public static SlingShotHandler instances;
+    private List<AmmoMechaism> ammoPrefabs;
     private void Awake()
     {
         if (instances == null)
         {
             instances = this;
         }
-
+        /*
         // Set ammoPrefab
-        ammoPrefab = Resources.Load<AmmoMechaism>("Ammo Mechaism");
-
-        if (ammoPrefab == null)
+        int maxNumberOfAmmo = GameManager.instances.getMaxNumberOfAmmos();
+        if (ammoPrefabs == null)
         {
-            Debug.LogError("Ammo prefab could not be loaded. Check if the path and name are correct.");
+            for (int i = 1; i <= maxNumberOfAmmo; i++)
+            {
+                AmmoMechaism ammoPrefab = Resources.Load<AmmoMechaism>("Ammo");
+                if (ammoPrefab != null)
+                {
+                    ammoPrefabs.Add(ammoPrefab);
+                }
+                else
+                {
+                    Debug.LogError($"Ammo prefab 'Ammo {i}' could not be loaded. Check if the path and name are correct.");
+                }
+            }
         }
-
+         */
+        ammoPrefabs = SelectAmmoManager.instances.getAmmoPrefabs();
         leftLR.enabled = false;
         rightLR.enabled = false;
         spawnAmmo();
@@ -142,11 +153,17 @@ public class SlingShotHandler : MonoBehaviour
 
     #region Ammo Methods
 
+    public void setSelectAmmo(List<AmmoMechaism> SelectedAmmoPrefabs)
+    {
+        ammoPrefabs = SelectedAmmoPrefabs;
+    }
     private void spawnAmmo()
     {
         SetLines(idlePosition.position);
         Vector2 dir = (centerPosition.position - idlePosition.position).normalized;
         Vector2 spawnPosition = (Vector2)idlePosition.position + dir * AmmoPosOffset;
+        var ammoPrefab = ammoPrefabs[0];
+        ammoPrefabs.RemoveAt(0);
         spawnedAmmo = Instantiate(ammoPrefab, spawnPosition, Quaternion.identity);
         spawnedAmmo.transform.right = dir;
         ammoOnSlingShot = true;

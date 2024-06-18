@@ -54,6 +54,10 @@ public class GameManager : MonoBehaviour
         _iconHandler.UseAmmo(_usedNumberOfAmmos);
     }
 
+    public int getMaxNumberOfAmmos()
+    {
+        return MaxNumberOfAmmos;
+    }
     public bool HasEnoughAmmos()
     {
         if (_usedNumberOfAmmos < MaxNumberOfAmmos)

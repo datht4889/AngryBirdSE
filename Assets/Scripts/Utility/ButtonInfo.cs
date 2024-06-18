@@ -12,8 +12,14 @@ public class ButtonInfo : MonoBehaviour
 
 
     void Update()
-    {
-        priceText.text = ShopManagerInstance.shopItems[2, ItemID].ToString();
-        quantityText.text = ShopManagerInstance.shopItems[3, ItemID].ToString();
+    {   if (ShopManagerInstance != null)
+        {
+            priceText.text = ShopManagerInstance.shopItems[2, ItemID].ToString();
+            if (ItemID != 0)
+            {
+                quantityText.text = ShopManagerInstance.shopItems[3, ItemID].ToString();
+            }
+        }
+        
     }
 }
