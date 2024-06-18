@@ -7,6 +7,8 @@ public class Alien : MonoBehaviour
     public float MAX_HEALTH = 12f; 
     public float DAMAGE_THRESHOLD = 1f;
 
+    public Animator animator;
+
     private float current_health;
 
     // Start is called before the first frame update
@@ -25,6 +27,12 @@ public class Alien : MonoBehaviour
 
     }
 
+    void OnDead(){
+        animator.SetTrigger("Dead");
+        // yield return new WaitForSeconds(0.5f);
+        // Destroy(gameObject);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision){
         float impactVelocity = collision.relativeVelocity.magnitude;
         if (impactVelocity >= DAMAGE_THRESHOLD){
@@ -33,7 +41,7 @@ public class Alien : MonoBehaviour
 
         if (current_health<=0f) {
             GameManager.instances.removeAlien(this);
-            Destroy(gameObject);
+            OnDead();
             ScoreScript.scoreValue += 100;
         }
     }
