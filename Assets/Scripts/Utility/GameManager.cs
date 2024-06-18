@@ -54,6 +54,10 @@ public class GameManager : MonoBehaviour
         _iconHandler.UseAmmo(_usedNumberOfAmmos);
     }
 
+    public int getMaxNumberOfAmmos()
+    {
+        return MaxNumberOfAmmos;
+    }
     public bool HasEnoughAmmos()
     {
         if (_usedNumberOfAmmos < MaxNumberOfAmmos)
@@ -98,15 +102,15 @@ public class GameManager : MonoBehaviour
     #region Win/Lose
 
     private void WinGame(){
-        // _restartScreenObject.SetActive(true);
-        
+        // int currentGold = int.Parse(goldText.text.Substring(6));
+        int updateGold = ScoreScript.scoreValue;
+        DataManager.dataManager.UpdateGold(updateGold);
         Time.timeScale = 0;
         _WinScene.SetActive(true);
 
     }
 
     public void LoseGame(){
-        // _restartScreenObject.SetActive(true);
         Time.timeScale = 0;
         _LoseScene.SetActive(true);
     }

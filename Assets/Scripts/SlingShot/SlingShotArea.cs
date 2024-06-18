@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class SlingShotArea : MonoBehaviour
 {
     [SerializeField] private LayerMask slingShotAreaMask;

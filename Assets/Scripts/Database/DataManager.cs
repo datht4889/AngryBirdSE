@@ -24,8 +24,8 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI logInFailed;
     public TextMeshProUGUI signUpFailed;
 
-    private string UserID;
-    private DatabaseReference dbReference;
+    public string UserID;
+    public DatabaseReference dbReference;
 
     void Awake()
     {
@@ -170,7 +170,6 @@ public class DataManager : MonoBehaviour
                             UserID = Guid.NewGuid().ToString();
                             User newUser = new User(enteredUsername, enteredPassword, 0);
                             string json = JsonUtility.ToJson(newUser);
-
                             dbReference.Child("users").Child(UserID).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
                             {
                                 if (task.IsCompleted)
@@ -255,44 +254,47 @@ public class DataManager : MonoBehaviour
         return $"Username: {logInUsername.text}, Password: {logInPassword.text}";
     }
 
-    // public void UpdateName()
-    // {
-    //     string newName = nameText.text.Replace("Username: ", "");
-    //     dbReference.Child("users").Child(UserID).Child("username").SetValueAsync(newName).ContinueWithOnMainThread(task =>
-    //     {
-    //         if (task.IsCompleted)
-    //         {
-    //             Debug.Log("Username updated successfully!");
-    //         }
-    //         else
-    //         {
-    //             Debug.LogError("Error updating username: " + task.Exception);
-    //         }
-    //     });
-    // }
+    public void UpdateName(string newName)
+    {
+        // string newName = nameText.text.Replace("Username: ", "");
+        dbReference.Child("users").Child(UserID).Child("username").SetValueAsync(newName).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted)
+            {
+                Debug.Log("Username updated successfully!");
+            }
+            else
+            {
+                Debug.LogError("Error updating username: " + task.Exception);
+            }
+        });
+    }
 
-    // public void UpdateGold()
-    // {
-    //     string goldStr = goldText.text.Replace("Gold: ", "");
-    //     if (int.TryParse(goldStr, out int goldValue))
-    //     {
-    //         dbReference.Child("users").Child(UserID).Child("gold").SetValueAsync(goldValue).ContinueWithOnMainThread(task =>
-    //         {
-    //             if (task.IsCompleted)
-    //             {
-    //                 Debug.Log("Gold updated successfully!");
-    //             }
-    //             else
-    //             {
-    //                 Debug.LogError("Error updating gold: " + task.Exception);
-    //             }
-    //         });
-    //     }
-    //     else
-    //     {
-    //         Debug.LogError("Invalid gold value");
-    //     }
-    // }
+    public void UpdateGold(int goldValue)
+    {
+        // string goldStr = goldText.text.Replace("Gold: ", "");
+        StartCoroutine(GetGold((int gold) =>
+        {
+            if (goldValue.GetType() == typeof(int))
+            {
+                dbReference.Child("users").Child(UserID).Child("gold").SetValueAsync(gold+goldValue).ContinueWithOnMainThread(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log("Gold updated successfully!");
+                    }
+                    else
+                    {
+                        Debug.LogError("Error updating gold: " + task.Exception);
+                    }
+                });
+            }
+            else
+            {
+                Debug.LogError("Invalid gold value");
+            }
+        }));
+    }
 
 
 }
