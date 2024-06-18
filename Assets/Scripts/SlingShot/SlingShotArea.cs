@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-using UnityEngine;
-using UnityEngine.InputSystem; // Ensure you have the Input System package if using the new Input System
 
 public class SlingShotArea : MonoBehaviour
 {
