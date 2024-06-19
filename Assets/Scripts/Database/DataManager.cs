@@ -178,7 +178,7 @@ public class DataManager : MonoBehaviour
                                     signUpFailed.color = Color.green;
                                     signUpFailed.text = "Sign up successfully! Please log in.";
                                     logInFailed.text = "Sign up successfully! Please log in.";
-                                    OpenLogIn();
+                                    // OpenLogIn();
                                 }
                                 else
                                 {
