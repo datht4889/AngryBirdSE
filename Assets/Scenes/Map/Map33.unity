@@ -1128,7 +1128,7 @@ MonoBehaviour:
   _icons:
   - {fileID: 1407240723}
   - {fileID: 1322133259}
-  _usedColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
+  _usedColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
 --- !u!114 &272365012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &352885270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1670,6 +1671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &370082410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1843,6 +1845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &409257054
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2258,6 +2261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &491928915
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2493,6 +2497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &578573482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3259,7 +3264,6 @@ MonoBehaviour:
   shotForce: 15
   slingShotArea: {fileID: 68852990}
   cameraManager: {fileID: 955899045}
-  ammoPrefab: {fileID: 857623370451572515, guid: cd60d009af5d9fa4382c447ab5b2aa36, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
   isShooting: 0
@@ -3416,6 +3420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &737283044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3589,6 +3594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &881398239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3793,6 +3799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &896203736
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4357,6 +4364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &954355835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4755,6 +4763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1059335372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4928,6 +4937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1069771101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7070,6 +7080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1716156976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7243,6 +7254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1745252954
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7451,6 +7463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1769169171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8291,7 +8304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9490a5d97d7849648e093a738c4d8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfAmmos: 10
+  MaxNumberOfAmmos: 3
   _restartScreenObject: {fileID: 1341521863}
   _star1: {fileID: 1341521862}
   _star2: {fileID: 1341521861}

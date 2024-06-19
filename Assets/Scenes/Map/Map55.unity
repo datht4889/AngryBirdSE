@@ -440,7 +440,7 @@ MonoBehaviour:
   _icons:
   - {fileID: 2026406961}
   - {fileID: 1092579953}
-  _usedColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
+  _usedColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
 --- !u!114 &73062980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,6 +1039,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 409805891}
+    - target: {fileID: 5298731956616442014, guid: e94257f1a430a4ef1b4a4a85e26f4c91, type: 3}
+      propertyPath: MAX_HEALTH
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5870419135915405475, guid: e94257f1a430a4ef1b4a4a85e26f4c91, type: 3}
       propertyPath: m_Mass
       value: 17.199
@@ -1548,7 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9490a5d97d7849648e093a738c4d8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfAmmos: 2
+  MaxNumberOfAmmos: 3
   _restartScreenObject: {fileID: 1914064629}
   _star1: {fileID: 1914064626}
   _star2: {fileID: 1914064625}

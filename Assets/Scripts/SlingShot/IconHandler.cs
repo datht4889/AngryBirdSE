@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class IconHandler : MonoBehaviour
 {
     [SerializeField] private Image[] _icons;
-    [SerializeField] private Color _usedColor = new Color(116, 116, 116);
+    [SerializeField] private Color _usedColor;
 
     public void UseAmmo(int shotNumber)
     {
@@ -22,8 +22,13 @@ public class IconHandler : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        List<SpriteRenderer> ammoList = SelectAmmoManager.instances.getAmmoImagePrefabs();
+        for (int i = 0; i<ammoList.Count; i++){
+            _icons[i].sprite = ammoList[i].sprite;
+        }
         
+
     }
 
     // Update is called once per frame
