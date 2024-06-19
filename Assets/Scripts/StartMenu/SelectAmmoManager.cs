@@ -65,7 +65,9 @@ public class SelectAmmoManager : MonoBehaviour
     }
 
     public List<AmmoMechaism> getAmmoPrefabs()
+        
     {
-        return ammoPrefabs;
+        List<AmmoMechaism> copyAmmo = new List<AmmoMechaism>(ammoPrefabs);
+        return copyAmmo;
     }
 }
