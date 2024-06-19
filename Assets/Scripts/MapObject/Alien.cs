@@ -30,7 +30,7 @@ public class Alien : MonoBehaviour
     void OnDead(){
         animator.SetTrigger("Dead");
         // yield return new WaitForSeconds(0.5f);
-        // Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     void OnAttack(){
@@ -40,8 +40,8 @@ public class Alien : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         float impactVelocity = collision.relativeVelocity.magnitude;
         if (impactVelocity >= DAMAGE_THRESHOLD){
-            OnAttack();
             Damage(impactVelocity);
+            OnAttack();
         }
 
         if (current_health<=0f) {
