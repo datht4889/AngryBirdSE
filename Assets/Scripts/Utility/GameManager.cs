@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _WinScene;
     [SerializeField] private GameObject _LoseScene;
 
-
     private List<Alien> _aliens = new List<Alien>();
+
+    public int MAX_SCORE;
 
     private void Awake(){
         if (instances == null){
@@ -44,7 +45,13 @@ public class GameManager : MonoBehaviour
         for (int i =0; i < aliens.Length; i++){
             _aliens.Add(aliens[i]);
         }
+        Glass[] _glasses = FindObjectsOfType<Glass>();
+        Metal[] _metals = FindObjectsOfType<Metal>();
+        Stone[] _stones = FindObjectsOfType<Stone>();
+        Wood[] _woods = FindObjectsOfType<Wood>();
         No_Alien = aliens.Length;
+        MAX_SCORE = 100*aliens.Length + 50*(_glasses.Length + _metals.Length + _stones.Length + _woods.Length);
+        Debug.Log(MAX_SCORE);
     }
 
     #region AmmoSettings
@@ -74,7 +81,7 @@ public class GameManager : MonoBehaviour
     #region CheckAlien
     public void removeAlien(Alien alien){
         _aliens.Remove(alien);
-        float percent = (float)_aliens.Count / No_Alien;
+        float percent = (float)ScoreScript.scoreValue / MAX_SCORE;
         if (percent < 0.9 && percent >= 0.66){
                 AppearStar1();
         } else if(percent > 0 && percent < 0.66){
