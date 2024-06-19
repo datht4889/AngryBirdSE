@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &106561315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -821,6 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!50 &173891206
 Rigidbody2D:
   serializedVersion: 4
@@ -1606,6 +1608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!58 &285858590
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1769,6 +1772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!50 &466247039
 Rigidbody2D:
   serializedVersion: 4
@@ -1976,6 +1980,8 @@ MonoBehaviour:
   RestartButton: {fileID: 1170901120}
   PauseButton: {fileID: 71243175}
   PausePanel: {fileID: 899084183}
+  SettingPanel: {fileID: 0}
+  SettingButton: {fileID: 0}
 --- !u!1 &557192720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &557192723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2890,6 +2897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &652580238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3711,6 +3719,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &884483531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884483532}
+  m_Layer: 0
+  m_Name: rightPosition (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884483532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884483531}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15, y: -1.31, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034577103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891007040
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,9 +3789,9 @@ MonoBehaviour:
   shotForce: 10
   slingShotArea: {fileID: 1447832157}
   cameraManager: {fileID: 2127571268}
-  ammoPrefab: {fileID: 857623370451572515, guid: cd60d009af5d9fa4382c447ab5b2aa36, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
+  isShooting: 0
 --- !u!4 &891007042
 Transform:
   m_ObjectHideFlags: 0
@@ -4135,6 +4174,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1034577102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034577103}
+  m_Layer: 0
+  m_Name: CamTrack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034577103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034577102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35457984, y: -1.1218772, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1136518243}
+  - {fileID: 884483532}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1066280796
 GameObject:
   m_ObjectHideFlags: 0
@@ -4516,6 +4588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!58 &1135874074
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4630,6 +4703,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1136518242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136518243}
+  m_Layer: 0
+  m_Name: rightPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1136518243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136518242}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15, y: -1.31, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034577103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1170901120
 GameObject:
   m_ObjectHideFlags: 0
@@ -6700,11 +6804,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxNumberOfAmmos: 3
-  _secondsToWaitBeforeDeathCheck: 3
   _restartScreenObject: {fileID: 0}
   _star1: {fileID: 0}
   _star2: {fileID: 0}
   _star3: {fileID: 0}
+  _star_final_1: {fileID: 0}
+  _star_final_2: {fileID: 0}
+  _star_final_3: {fileID: 0}
   No_Alien: 0
   _WinScene: {fileID: 641523977}
   _LoseScene: {fileID: 0}
@@ -6925,7 +7031,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.4211621, y: 2.05}
+    oldSize: {x: 3.3611417, y: 2.04}
     newSize: {x: 150, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
@@ -8112,8 +8218,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554b2adecc1820a498260494dc297ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slingShotArea: {fileID: 0}
   idleCam: {fileID: 621486602}
   followCam: {fileID: 1434862853}
+  maxDragDistance: 1000
+  dragSensitivity: 0.01
+  leftPosition: {fileID: 1136518243}
+  rightPosition: {fileID: 884483532}
+  panDuration: 0
+  cameraHeight: 1
+  fieldOfView: 30
 --- !u!4 &2127571269
 Transform:
   m_ObjectHideFlags: 0
@@ -8123,7 +8237,7 @@ Transform:
   m_GameObject: {fileID: 2127571267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8146,3 +8260,4 @@ SceneRoots:
   - {fileID: 795991576}
   - {fileID: 960324085}
   - {fileID: 2127571269}
+  - {fileID: 1034577103}

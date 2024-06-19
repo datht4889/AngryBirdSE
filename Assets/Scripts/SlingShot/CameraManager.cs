@@ -15,14 +15,26 @@ public class CameraManager : MonoBehaviour
     private Vector3 dragStartPosition;
     private bool isDragging = false;
 
+    // New fields for camera pan
+    [Header("Camera Pan Settings")]
+    [SerializeField] private Transform leftPosition;  
+    [SerializeField] private Transform rightPosition; 
+    [SerializeField] private float panDuration = 0.01f;
+    [SerializeField] private float cameraHeight = 4.0f; 
+    [SerializeField] private float fieldOfView = 60.0f; 
+
     private void Awake()
     {
         SwitchToIdleCam();
         initialPosition = idleCam.transform.position;
+        idleCam.transform.position = new Vector3(leftPosition.position.x, cameraHeight, leftPosition.position.z);
+        idleCam.m_Lens.FieldOfView = fieldOfView;
+        StartCoroutine(PanCamera());
     }
 
     private void Update()
-    {   if (!SlingShotHandler.instances.isShooting)
+    {   
+        if (!SlingShotHandler.instances.isShooting)
         {
             // Handle touch input if on mobile or mouse input if on PC
             if (Input.touchCount > 0)
@@ -103,7 +115,7 @@ public class CameraManager : MonoBehaviour
 
     private IEnumerator ResetCameraPosition()
     {
-        float duration = 0.5f; // Time to move back to the initial position
+        float duration = 3.0f; 
         float elapsedTime = 0.0f;
 
         Vector3 startPosition = idleCam.transform.position;
@@ -116,5 +128,24 @@ public class CameraManager : MonoBehaviour
         }
 
         idleCam.transform.position = initialPosition;
+    }
+
+    private IEnumerator PanCamera()
+    {
+        float elapsedTime = 0.0f;
+        Vector3 startPosition = new Vector3(leftPosition.position.x, cameraHeight, leftPosition.position.z);
+        Vector3 endPosition = new Vector3(rightPosition.position.x, cameraHeight, rightPosition.position.z);
+
+        while (elapsedTime < panDuration)
+        {
+            idleCam.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / panDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        idleCam.transform.position = endPosition;
+
+        yield return new WaitForSeconds(0.0f);
+        StartCoroutine(ResetCameraPosition());
     }
 }

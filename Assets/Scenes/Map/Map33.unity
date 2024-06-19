@@ -1497,6 +1497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &352885270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1670,6 +1671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &370082410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1843,6 +1845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &409257054
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2258,6 +2261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &491928915
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2444,6 +2448,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1753268420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &564921040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564921041}
+  m_Layer: 0
+  m_Name: rightPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564921041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564921040}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20, y: -1.31, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550251479}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578573479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,6 +2528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &578573482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3259,7 +3295,6 @@ MonoBehaviour:
   shotForce: 15
   slingShotArea: {fileID: 68852990}
   cameraManager: {fileID: 955899045}
-  ammoPrefab: {fileID: 857623370451572515, guid: cd60d009af5d9fa4382c447ab5b2aa36, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
   isShooting: 0
@@ -3416,6 +3451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &737283044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3589,6 +3625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &881398239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3793,6 +3830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &896203736
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4357,6 +4395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &954355835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4515,6 +4554,11 @@ MonoBehaviour:
   followCam: {fileID: 1823342806}
   maxDragDistance: 1000
   dragSensitivity: 0.01
+  leftPosition: {fileID: 564921041}
+  rightPosition: {fileID: 975867365}
+  panDuration: 0.01
+  cameraHeight: 3
+  fieldOfView: 60
 --- !u!4 &955899046
 Transform:
   m_ObjectHideFlags: 0
@@ -4524,7 +4568,7 @@ Transform:
   m_GameObject: {fileID: 955899044}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7, y: -1.1, z: -10}
+  m_LocalPosition: {x: 2.7, y: -1.1, z: -1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4532,6 +4576,37 @@ Transform:
   - {fileID: 1680250043}
   - {fileID: 1823342807}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &975867364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975867365}
+  m_Layer: 0
+  m_Name: rightPosition (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &975867365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975867364}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20, y: -1.31, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550251479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001331107
 GameObject:
@@ -4755,6 +4830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1059335372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4928,6 +5004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1069771101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6713,6 +6790,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 30
   DAMAGE_THRESHOLD: 1
+--- !u!1 &1550251478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550251479}
+  m_Layer: 0
+  m_Name: CamTrack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1550251479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550251478}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35457984, y: -1.1218772, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 564921041}
+  - {fileID: 975867365}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1655977345
 GameObject:
   m_ObjectHideFlags: 0
@@ -7070,6 +7180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1716156976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7243,6 +7354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1745252954
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7451,6 +7563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1769169171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8430,3 +8543,4 @@ SceneRoots:
   - {fileID: 2091971549}
   - {fileID: 1377219614}
   - {fileID: 955899046}
+  - {fileID: 1550251479}

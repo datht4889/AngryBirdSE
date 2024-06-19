@@ -350,6 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &94311641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -523,6 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &94870346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -730,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &185361640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1491,6 +1494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &421796659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1664,6 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &455909694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2324,6 +2329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &551606003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2621,6 +2627,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &649784830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649784831}
+  m_Layer: 0
+  m_Name: rightPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &649784831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649784830}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26, y: -1.31, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1277945290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730059162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,6 +3586,11 @@ MonoBehaviour:
   followCam: {fileID: 2060931026}
   maxDragDistance: 1000
   dragSensitivity: 0.01
+  leftPosition: {fileID: 649784831}
+  rightPosition: {fileID: 1970958270}
+  panDuration: 0.01
+  cameraHeight: 4
+  fieldOfView: 60
 --- !u!4 &944040381
 Transform:
   m_ObjectHideFlags: 0
@@ -3558,7 +3600,7 @@ Transform:
   m_GameObject: {fileID: 944040379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3616,6 +3658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &976520248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4263,6 +4306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1157541627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5087,6 +5131,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277771400}
   m_CullTransparentMesh: 1
+--- !u!1 &1277945289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1277945290}
+  m_Layer: 0
+  m_Name: CamTrack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1277945290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277945289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35457984, y: -1.1218772, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 649784831}
+  - {fileID: 1970958270}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284938682
 GameObject:
   m_ObjectHideFlags: 0
@@ -5468,6 +5545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1314299323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5672,6 +5750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1405823811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6122,6 +6201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1519540160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6500,6 +6580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1707264229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6708,6 +6789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1736399776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7054,6 +7136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1742203144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7227,6 +7310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1747420631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7400,6 +7484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1789716621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7830,6 +7915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1835330653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8321,6 +8407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1884418646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8532,6 +8619,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1731008119}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1970958269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970958270}
+  m_Layer: 0
+  m_Name: rightPosition (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970958270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970958269}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26, y: -1.31, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1277945290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1975235705
 GameObject:
@@ -8875,6 +8993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 12
   DAMAGE_THRESHOLD: 1
+  animator: {fileID: 0}
 --- !u!61 &1997731316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9314,7 +9433,6 @@ MonoBehaviour:
   shotForce: 15
   slingShotArea: {fileID: 1410821666}
   cameraManager: {fileID: 944040380}
-  ammoPrefab: {fileID: 857623370451572515, guid: cd60d009af5d9fa4382c447ab5b2aa36, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
   isShooting: 0
@@ -9474,3 +9592,4 @@ SceneRoots:
   - {fileID: 509793869}
   - {fileID: 944040381}
   - {fileID: 827509449}
+  - {fileID: 1277945290}
