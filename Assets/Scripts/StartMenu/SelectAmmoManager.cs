@@ -55,6 +55,19 @@ public class SelectAmmoManager : MonoBehaviour
         
     }
 
+    public void RemoveAmmo()
+    {
+        if (currentNumberOfAmmo == 0){
+            Debug.LogError("Can't delete");
+            return;
+        }
+        ammoPrefabs.RemoveAt(ammoPrefabs.Count - 1);
+        currentNumberOfAmmo--;
+        Debug.LogError("Delete successfully");
+    }
+    
+
+
     public void PlayDefault()
     {   if (currentNumberOfAmmo == maxNumberOfAmmo)
         {
