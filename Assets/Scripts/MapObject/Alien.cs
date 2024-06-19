@@ -33,9 +33,14 @@ public class Alien : MonoBehaviour
         // Destroy(gameObject);
     }
 
+    void OnAttack(){
+        animator.SetTrigger("Attack");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision){
         float impactVelocity = collision.relativeVelocity.magnitude;
         if (impactVelocity >= DAMAGE_THRESHOLD){
+            OnAttack();
             Damage(impactVelocity);
         }
 
