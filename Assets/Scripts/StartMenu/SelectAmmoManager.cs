@@ -7,12 +7,14 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SelectAmmoManager : MonoBehaviour
 {
-    public int map;
     private List<AmmoMechaism> ammoPrefabs = new List<AmmoMechaism> { };
+    private List<SpriteRenderer> ammoImagePrefabs = new List<SpriteRenderer> { };
     private int maxNumberOfAmmo = 3; //GameManager.instances.getMaxNumberOfAmmos();
     private int currentNumberOfAmmo = 0;
     AmmoMechaism ammoPrefab;
+    SpriteRenderer ammoImagePrefab;
     public static SelectAmmoManager instances;
+    public int map;
   
     private void Awake()
     {
@@ -33,21 +35,24 @@ public class SelectAmmoManager : MonoBehaviour
             if (AmmoId == 0)
             {
                 ammoPrefab = Resources.Load<AmmoMechaism>("Ammo");
+                ammoImagePrefab = Resources.Load<SpriteRenderer>("Ammo");
             }
             else if (AmmoId == 1)
             {
                 ammoPrefab = Resources.Load<AmmoMechaism>("BiggerAmmo");
+                ammoImagePrefab = Resources.Load<SpriteRenderer>("BiggerAmmo");
             }
             else if (AmmoId == 2)
             {
                 ammoPrefab = Resources.Load<AmmoMechaism>("ExplosionAmmo");
+                ammoImagePrefab = Resources.Load<SpriteRenderer>("ExplosionAmmo");
             }
             if (ammoPrefab != null)
             {
                 ammoPrefabs.Add(ammoPrefab);
+                ammoImagePrefabs.Add(ammoImagePrefab);
                 currentNumberOfAmmo++;
                 Debug.LogError("add ammo to list");
-
             }
             else
             {
@@ -64,6 +69,7 @@ public class SelectAmmoManager : MonoBehaviour
             return;
         }
         ammoPrefabs.RemoveAt(ammoPrefabs.Count - 1);
+        ammoImagePrefabs.RemoveAt(ammoImagePrefabs.Count - 1);
         currentNumberOfAmmo--;
         Debug.LogError("Delete successfully");
     }
@@ -79,6 +85,18 @@ public class SelectAmmoManager : MonoBehaviour
        
     }
 
+    public List<AmmoMechaism> getAmmoPrefabs()
+    {
+        List<AmmoMechaism> copyAmmo = new List<AmmoMechaism>(ammoPrefabs);
+        return copyAmmo;
+    }
+
+    public List<SpriteRenderer> getAmmoImagePrefabs()
+    {
+        List<SpriteRenderer> copyImageAmmo = new List<SpriteRenderer>(ammoImagePrefabs);
+        return copyImageAmmo;
+    }
+
     public void Play()
     {   if (currentNumberOfAmmo == maxNumberOfAmmo)
         {
@@ -86,12 +104,5 @@ public class SelectAmmoManager : MonoBehaviour
             Time.timeScale = 1;
         }
        
-    }
-
-    public List<AmmoMechaism> getAmmoPrefabs()
-        
-    {
-        List<AmmoMechaism> copyAmmo = new List<AmmoMechaism>(ammoPrefabs);
-        return copyAmmo;
     }
 }
