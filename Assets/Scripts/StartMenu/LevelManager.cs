@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
 
     public static void LoadMap1()
     {
-        map = 1;
+        lvmn.map = 1;
         SceneManager.LoadScene(2,LoadSceneMode.Single);
         Time.timeScale = 1;
     }
