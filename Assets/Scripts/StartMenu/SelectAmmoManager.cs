@@ -7,6 +7,8 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SelectAmmoManager : MonoBehaviour
 {
+    public static LevelManager lvmn;
+    public int map;
     private List<AmmoMechaism> ammoPrefabs = new List<AmmoMechaism> { };
     private int maxNumberOfAmmo = 3; //GameManager.instances.getMaxNumberOfAmmos();
     private int currentNumberOfAmmo = 0;
@@ -18,6 +20,7 @@ public class SelectAmmoManager : MonoBehaviour
         if (instances == null)
         {
             instances = this;
+            map = lvmn.map;
         }
     }
 
@@ -72,6 +75,15 @@ public class SelectAmmoManager : MonoBehaviour
     {   if (currentNumberOfAmmo == maxNumberOfAmmo)
         {
             SceneManager.LoadScene(2, LoadSceneMode.Single);
+            Time.timeScale = 1;
+        }
+       
+    }
+
+    public void Play()
+    {   if (currentNumberOfAmmo == maxNumberOfAmmo)
+        {
+            SceneManager.LoadScene(map+1, LoadSceneMode.Single);
             Time.timeScale = 1;
         }
        

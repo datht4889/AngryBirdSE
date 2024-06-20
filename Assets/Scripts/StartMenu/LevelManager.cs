@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {   
+    public static LevelManager lvmn;
+
+    public int map;
     public GameObject PrevBtn;
     
     public GameObject Map1Btn;
@@ -25,6 +28,14 @@ public class LevelManager : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        if (lvmn == null)
+        {
+            lvmn = this;
+        }
+    }
+
     public static void LoadStart()
     {
         SceneManager.LoadScene(0,LoadSceneMode.Single);
@@ -32,6 +43,7 @@ public class LevelManager : MonoBehaviour
 
     public static void LoadMap1()
     {
+        map = 1;
         SceneManager.LoadScene(2,LoadSceneMode.Single);
         Time.timeScale = 1;
     }
