@@ -1424,6 +1424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd45eabb955cfa446aaa36028c0651d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  map: 0
 --- !u!4 &415140444
 Transform:
   m_ObjectHideFlags: 0
@@ -2744,9 +2745,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 540972004}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: PlayDefault
+      - m_Target: {fileID: 415140443}
+        m_TargetAssemblyTypeName: SelectAmmoManager, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

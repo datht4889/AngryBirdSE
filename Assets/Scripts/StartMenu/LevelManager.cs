@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
     public static void LoadMap1()
     {
         lvmn.map = 1;
-        SceneManager.LoadScene(2,LoadSceneMode.Single);
+        SceneManager.LoadScene(5,LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 

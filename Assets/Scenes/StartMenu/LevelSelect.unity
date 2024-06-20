@@ -772,10 +772,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ea20c4212417546859704486e98459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrevBtn: {fileID: 0}
-  Map1Btn: {fileID: 0}
+  map: 0
+  PrevBtn: {fileID: 2018682999}
+  Map1Btn: {fileID: 95323341}
   Map2Btn: {fileID: 1448966096}
-  Map3Btn: {fileID: 0}
+  Map3Btn: {fileID: 657031968}
 --- !u!1 &1448966096
 GameObject:
   m_ObjectHideFlags: 0
