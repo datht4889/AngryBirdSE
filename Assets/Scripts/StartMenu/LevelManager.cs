@@ -50,13 +50,15 @@ public class LevelManager : MonoBehaviour
 
     public static void LoadMap2()
     {
-        SceneManager.LoadScene(3,LoadSceneMode.Single);
+        lvmn.map = 2;
+        SceneManager.LoadScene(5,LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 
     public static void LoadMap3()
     {
-        SceneManager.LoadScene(4,LoadSceneMode.Single);
+        lvmn.map = 3;
+        SceneManager.LoadScene(5,LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 }
