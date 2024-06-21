@@ -240,6 +240,23 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public IEnumerator GetAmmo(string ammoType, Action<bool> onCallback)
+    {
+        var userAmmoData = dbReference.Child("users").Child(UserID).Child(ammoType).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => userAmmoData.IsCompleted);
+
+        if (userAmmoData != null && userAmmoData.Result.Exists)
+        {
+            DataSnapshot snapshot = userAmmoData.Result;
+            onCallback.Invoke(bool.Parse(snapshot.Value.ToString()));
+        }
+        else
+        {
+            Debug.LogError($"Error retrieving {ammoType} data");
+        }
+    }
+
     public string GetUserInfo()
     {
         string goldText;
@@ -296,5 +313,28 @@ public class DataManager : MonoBehaviour
         }));
     }
 
+    public void UpdateAmmo( string AmmoType, bool biggerAmmoValue)
+    {
+        // string goldStr = goldText.text.Replace("Gold: ", "");
+        
+            if (biggerAmmoValue.GetType() == typeof(bool))
+            {
+                dbReference.Child("users").Child(UserID).Child("AmmoType").SetValueAsync(biggerAmmoValue).ContinueWithOnMainThread(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log($"{AmmoType} updated successfully!");
+                    }
+                    else
+                    {
+                        Debug.LogError($"Error updating {AmmoType}: " + task.Exception);
+                    }
+                });
+            }
+            else
+            {
+                Debug.LogError("Invalid gold value");
+            }
+    }
 
 }
