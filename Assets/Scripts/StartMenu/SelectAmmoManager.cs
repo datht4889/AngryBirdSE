@@ -7,6 +7,7 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SelectAmmoManager : MonoBehaviour
 {
+    private List<bool> AmmoChecker = new List<bool> {true, true, false};
     private List<AmmoMechaism> ammoPrefabs = new List<AmmoMechaism> { };
     private List<SpriteRenderer> ammoImagePrefabs = new List<SpriteRenderer> { };
     private int maxNumberOfAmmo = 3; //GameManager.instances.getMaxNumberOfAmmos();
@@ -46,6 +47,9 @@ public class SelectAmmoManager : MonoBehaviour
             {
                 ammoPrefab = Resources.Load<AmmoMechaism>("ExplosionAmmo");
                 ammoImagePrefab = Resources.Load<SpriteRenderer>("ExplosionAmmo");
+            }
+            if (!AmmoChecker[AmmoId]){
+                ammoPrefab = null;
             }
             if (ammoPrefab != null)
             {

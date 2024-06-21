@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 
 public class ShowSameMessage : MonoBehaviour
 {
+    private List<bool> AmmoChecker = new List<bool> {true, true, false};
     private Texture newSprite; // Assign your Prefab in the Inspector
 
     public Texture newSprite1;
@@ -38,7 +39,7 @@ public class ShowSameMessage : MonoBehaviour
         // Add listeners to each button in the list
         foreach (UnityEngine.UI.Button button in messageButtons)
         {
-
+            
             button.onClick.AddListener(() => ShowMessage("Add successfully", messageButtons.IndexOf(button)));
         }
 
@@ -47,54 +48,57 @@ public class ShowSameMessage : MonoBehaviour
 
     private void ShowMessage(string message, int index)
     {
-        
-        if (currentNumberOfAmmo == maxNumberOfAmmo){
-            messageText.text = "Full of ammo slots";
+        if (!AmmoChecker[index]){
+            messageText.text = "Not available ammo";
             messageText.color = Color.red;
         } else{
-        messageText.text = message;
-        currentNumberOfAmmo++; 
+            if (currentNumberOfAmmo == maxNumberOfAmmo){
+                messageText.text = "Full of ammo slots";
+                messageText.color = Color.red;
+            } else{
+            messageText.text = message;
+            currentNumberOfAmmo++; 
 
-        if (index == 0){
-            newSprite = newSprite1;
-        } else if (index == 1){
-            newSprite = newSprite2;
-        } else if (index == 2){
-            newSprite = newSprite3;
-        }
+            if (index == 0){
+                newSprite = newSprite1;
+            } else if (index == 1){
+                newSprite = newSprite2;
+            } else if (index == 2){
+                newSprite = newSprite3;
+            }
 
-        if (currentNumberOfAmmo == 1){
-            position = position1;
+            if (currentNumberOfAmmo == 1){
+                position = position1;
+                
+            } else if (currentNumberOfAmmo == 2){
+                position = position2;
+            }  else if (currentNumberOfAmmo == 3){
+                position = position3;
+            }
             
-        } else if (currentNumberOfAmmo == 2){
-            position = position2;
-        }  else if (currentNumberOfAmmo == 3){
-            position = position3;
-        }
-        
-        RawImage imageComponent1 = position.GetComponent<RawImage>();
-            if (imageComponent1 != null)
-            {
-                imageComponent1.texture = newSprite;
-                Debug.Log("Sprite has been set.");
-            }
-            else
-            {
-                Debug.LogWarning("No SpriteRenderer component found on target object.");
-            }
+            RawImage imageComponent1 = position.GetComponent<RawImage>();
+                if (imageComponent1 != null)
+                {
+                    imageComponent1.texture = newSprite;
+                    Debug.Log("Sprite has been set.");
+                }
+                else
+                {
+                    Debug.LogWarning("No SpriteRenderer component found on target object.");
+                }
 
-            messageText.color = Color.green;
+                messageText.color = Color.green;
+            
+            RawImage imageComponent = position.GetComponent<RawImage>();
+
+            Color color = imageComponent.color;
+            color.a = 1f; // Set the alpha value
+            imageComponent.color = color;
+            }
+        }
         // Set the message text
-        messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, 1f); // Ensure alpha is 1
-        messageText.gameObject.SetActive(true); // Show the text
-        
-        RawImage imageComponent = position.GetComponent<RawImage>();
-
-        Color color = imageComponent.color;
-        color.a = 1f; // Set the alpha value
-        imageComponent.color = color;
-        }
-
+            messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, 1f); // Ensure alpha is 1
+            messageText.gameObject.SetActive(true); // Show the text
 
         // Cancel previous fade coroutine if exists
         if (fadeCoroutine != null)
