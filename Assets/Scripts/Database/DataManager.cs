@@ -133,7 +133,7 @@ public class DataManager : MonoBehaviour
                 }
                 else
                 {
-                    logInFailed.text = "Error checking username: " + task.Exception;
+                    logInFailed.text = "Error log in: " + task.Exception;
                 }
             });
         }
@@ -195,8 +195,7 @@ public class DataManager : MonoBehaviour
                 }
                 else
                 {
-                    signUpFailed.text = "Error checking username: " + task.Exception;
-                    Debug.Log("lmao");
+                    signUpFailed.text = "Error sign up: " + task.Exception;
                 }
             });
         }

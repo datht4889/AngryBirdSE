@@ -59,6 +59,15 @@ public class MenuManager : MonoBehaviour
 
     public void LogOut(){
         // Load Log in scene
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/Login.unity",LoadSceneMode.Single);
+    }
+
+    public void OpenShop(){
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/Shop.unity",LoadSceneMode.Single);
+    }
+    public static void OpenLevelSelect()
+    {
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/LevelSelect.unity",LoadSceneMode.Single);
     }
 
     public void GetUserInfo(){

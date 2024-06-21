@@ -14,7 +14,7 @@ public class SelectAmmoManager : MonoBehaviour
     AmmoMechaism ammoPrefab;
     SpriteRenderer ammoImagePrefab;
     public static SelectAmmoManager instances;
-    public int map;
+    public string map;
   
     private void Awake()
     {
@@ -100,7 +100,7 @@ public class SelectAmmoManager : MonoBehaviour
     public void Play()
     {   if (currentNumberOfAmmo == maxNumberOfAmmo)
         {
-            SceneManager.LoadScene(map+1, LoadSceneMode.Single);
+            SceneManager.LoadScene(map, LoadSceneMode.Single);
             Time.timeScale = 1;
         }
        

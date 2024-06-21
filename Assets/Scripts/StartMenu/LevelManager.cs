@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {   
     public static LevelManager lvmn;
 
-    public int map;
+    public string map;
     public GameObject PrevBtn;
     
     public GameObject Map1Btn;
@@ -38,27 +38,39 @@ public class LevelManager : MonoBehaviour
 
     public static void LoadStart()
     {
-        SceneManager.LoadScene(0,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/StartScene.unity",LoadSceneMode.Single);
     }
 
     public static void LoadMap1()
     {
-        lvmn.map = 1;
-        SceneManager.LoadScene(5,LoadSceneMode.Single);
+        lvmn.map = "Assets/Scenes/Map/Map1.unity";
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/AmmoSelect.unity",LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 
     public static void LoadMap2()
     {
-        lvmn.map = 2;
-        SceneManager.LoadScene(5,LoadSceneMode.Single);
+        lvmn.map = "Assets/Scenes/Map/Map2.unity";
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/AmmoSelect.unity",LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 
     public static void LoadMap3()
     {
-        lvmn.map = 3;
-        SceneManager.LoadScene(5,LoadSceneMode.Single);
+        lvmn.map = "Assets/Scenes/Map/Map3.unity";
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/AmmoSelect.unity",LoadSceneMode.Single);
+        Time.timeScale = 1;
+    }
+    public static void LoadMap4()
+    {
+        lvmn.map = "Assets/Scenes/Map/Map4.unity";
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/AmmoSelect.unity",LoadSceneMode.Single);
+        Time.timeScale = 1;
+    }
+    public static void LoadMap5()
+    {
+        lvmn.map = "Assets/Scenes/Map/Map5.unity";
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/AmmoSelect.unity",LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 }
