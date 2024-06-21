@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class ShopManager : MonoBehaviour
 {
     public int[,] shopItems = new int[4,4];
@@ -40,5 +41,9 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public static void LoadStart()
+    {
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/StartScene.unity",LoadSceneMode.Single);
+    }
 }
 
