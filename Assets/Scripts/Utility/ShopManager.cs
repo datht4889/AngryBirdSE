@@ -31,6 +31,10 @@ public class ShopManager : MonoBehaviour
         {
             shopItems[1] = new ShopItem { id = 1, name = "explosionAmmo", price = 500, purchased = purchase2 };
         }));
+        StartCoroutine(DataManager.dataManager.GetGold((int gold) =>
+        {
+            money = gold;
+        }));
     }
 
     public void Buy()
