@@ -29,15 +29,15 @@ public class DataManager : MonoBehaviour
 
     void Awake()
     {
-        if (dataManager == null)
-        {
+        // if (dataManager == null)
+        // {
             dataManager = this;
             DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        // }
+        // else
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 
     void Start()

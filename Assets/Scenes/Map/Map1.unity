@@ -2761,6 +2761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxNumberOfAmmos: 3
+  MAX_SCORE: 2600
   _restartScreenObject: {fileID: 0}
   _star1: {fileID: 519352006}
   _star2: {fileID: 519352005}

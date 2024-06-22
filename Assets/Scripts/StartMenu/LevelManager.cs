@@ -41,6 +41,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Assets/Scenes/StartMenu/StartScene.unity",LoadSceneMode.Single);
     }
 
+    public static void LoadEnd()
+    {
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/Congratulation.unity",LoadSceneMode.Single);
+    }
+
     public static void LoadMap1()
     {
         lvmn.map = "Assets/Scenes/Map/Map1.unity";
