@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
     private void WinGame(){
         // int currentGold = int.Parse(goldText.text.Substring(6));
         int updateGold = ScoreScript.scoreValue;
-        DataManager.dataManager.UpdateGold(updateGold);
+        DataManager.dataManager.UpdateGold(updateGold+100);
         Time.timeScale = 0;
         _WinScene.SetActive(true);
 

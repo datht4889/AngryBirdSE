@@ -312,13 +312,13 @@ public class DataManager : MonoBehaviour
         }));
     }
 
-    public void UpdateAmmo( string AmmoType, bool biggerAmmoValue)
+    public void UpdateAmmo( string AmmoType)
     {
         // string goldStr = goldText.text.Replace("Gold: ", "");
         
-            if (biggerAmmoValue.GetType() == typeof(bool))
-            {
-                dbReference.Child("users").Child(UserID).Child("AmmoType").SetValueAsync(biggerAmmoValue).ContinueWithOnMainThread(task =>
+            
+       
+                dbReference.Child("users").Child(UserID).Child(AmmoType).SetValueAsync(true).ContinueWithOnMainThread(task =>
                 {
                     if (task.IsCompleted)
                     {
@@ -329,11 +329,7 @@ public class DataManager : MonoBehaviour
                         Debug.LogError($"Error updating {AmmoType}: " + task.Exception);
                     }
                 });
-            }
-            else
-            {
-                Debug.LogError("Invalid gold value");
-            }
+           
     }
 
 }

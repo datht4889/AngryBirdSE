@@ -4,10 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class ShowSameMessage : MonoBehaviour
 {
-    private List<bool> AmmoChecker = new List<bool> {true, true, false};
+    private List<bool> AmmoChecker = new List<bool> {true, false, false};
     private Texture newSprite; // Assign your Prefab in the Inspector
 
     public Texture newSprite1;
@@ -31,6 +32,19 @@ public class ShowSameMessage : MonoBehaviour
     public int currentNumberOfAmmo = 0;
     private int maxNumberOfAmmo = 3;
     private Coroutine fadeCoroutine;
+
+    private void Awake()
+    {
+      
+        StartCoroutine(DataManager.dataManager.GetAmmo("biggerAmmo", (bool purchase1) =>
+        {
+            AmmoChecker[1] = purchase1;
+        }));
+        StartCoroutine(DataManager.dataManager.GetAmmo("explosionAmmo", (bool purchase2) =>
+        {
+            AmmoChecker[2] = purchase2;
+        }));
+    }
 
     private void Start()
     {

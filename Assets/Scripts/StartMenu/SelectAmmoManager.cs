@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static ShopManager;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SelectAmmoManager : MonoBehaviour
 {
-    private List<bool> AmmoChecker = new List<bool> {true, true, false};
+    private List<bool> AmmoChecker = new List<bool> {true, false, false};
     private List<AmmoMechaism> ammoPrefabs = new List<AmmoMechaism> { };
     private List<SpriteRenderer> ammoImagePrefabs = new List<SpriteRenderer> { };
     private int maxNumberOfAmmo = 3; //GameManager.instances.getMaxNumberOfAmmos();
@@ -24,15 +25,23 @@ public class SelectAmmoManager : MonoBehaviour
             instances = this;
             map = LevelManager.lvmn.map;
         }
+        StartCoroutine(DataManager.dataManager.GetAmmo("biggerAmmo", (bool purchase1) =>
+        {
+            AmmoChecker[1] = purchase1;
+        }));
+        StartCoroutine(DataManager.dataManager.GetAmmo("explosionAmmo", (bool purchase2) =>
+        {
+            AmmoChecker[2] = purchase2;
+        }));
     }
 
-        public void SelectAmmo()
+    public void SelectAmmo()
     {   if (currentNumberOfAmmo < maxNumberOfAmmo)
         {
 
             GameObject ButtonRef = GameObject.FindGameObjectWithTag("SelectAmmo").GetComponent<EventSystem>().currentSelectedGameObject;
 
-            int AmmoId = ButtonRef.GetComponent<ButtonInfo>().ItemID;
+            int AmmoId = ButtonRef.GetComponent<ButtonInfo2>().ItemID;
             if (AmmoId == 0)
             {
                 ammoPrefab = Resources.Load<AmmoMechaism>("Ammo");
