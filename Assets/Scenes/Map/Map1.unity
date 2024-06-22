@@ -1259,6 +1259,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4106528700469770835, guid: 72a19e01d828ea143a42437589dfea9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 62138983}
+    - target: {fileID: 4106528700469770835, guid: 72a19e01d828ea143a42437589dfea9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     - target: {fileID: 4892532931000111583, guid: 72a19e01d828ea143a42437589dfea9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3971977
