@@ -9,9 +9,11 @@ public class MenuManager : MonoBehaviour
     public GameObject Panel;
 
     public GameObject Button;
+    public GameObject AboutBtn;
     public GameObject userPage;
     public TextMeshProUGUI usernameText;
     public TextMeshProUGUI goldText;
+
 
 
     // Start is called before the first frame update
@@ -34,6 +36,11 @@ public class MenuManager : MonoBehaviour
     public static void LoadLevel()
     {
         SceneManager.LoadScene(1,LoadSceneMode.Single);
+    }
+
+    public static void Help()
+    {
+        SceneManager.LoadScene(11,LoadSceneMode.Single);
     }
 
     public static void PlayDefault()
