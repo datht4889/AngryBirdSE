@@ -223,7 +223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162, y: 172}
+  m_AnchoredPosition: {x: -162, y: 120}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547895149
@@ -359,7 +359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1028, y: -112}
+  m_AnchoredPosition: {x: 1002, y: -355}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576619009
@@ -547,7 +547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1595, y: 310}
+  m_AnchoredPosition: {x: 1578, y: 69}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1503801970
@@ -558,7 +558,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503801968}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3308c019ae7bdbe4aaf2791f77531132, type: 2}
   m_CullingMode: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1752755714}
+      - m_Target: {fileID: 1752755715}
         m_TargetAssemblyTypeName: Help, Assembly-CSharp
         m_MethodName: NextHelp1
         m_Mode: 1
@@ -746,6 +746,7 @@ GameObject:
   - component: {fileID: 1752755711}
   - component: {fileID: 1752755710}
   - component: {fileID: 1752755714}
+  - component: {fileID: 1752755715}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -855,6 +856,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b26e043f0a004202adab9ed23222e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1752755715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752755709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9d6bdbf392c43b6995ef3c274168e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   PrevBtn: {fileID: 0}
   Hover: {fileID: 0}
 --- !u!1 &1897046738
@@ -943,7 +956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.095, y: 37}
+  m_AnchoredPosition: {x: 2.0951, y: -43}
   m_SizeDelta: {x: 4.19, y: 1.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1897046742
@@ -989,8 +1002,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 335.87, y: 84}
-  m_SizeDelta: {x: 671.74, y: 569.3}
+  m_AnchoredPosition: {x: 317.99994, y: -43}
+  m_SizeDelta: {x: 800, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897372030
 MonoBehaviour:
@@ -1252,7 +1265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 130.00006, y: 130.00003}
+  m_AnchoredPosition: {x: 143, y: 937}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2097348077
@@ -1320,7 +1333,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1752755714}
+      - m_Target: {fileID: 1752755715}
         m_TargetAssemblyTypeName: Help, Assembly-CSharp
         m_MethodName: LoadStart
         m_Mode: 1

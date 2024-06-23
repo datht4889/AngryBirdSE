@@ -821,7 +821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 297797770}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540972004}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: Help
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &297797770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,6 +1607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 1397587687}
   Button: {fileID: 1104539074}
+  AboutBtn: {fileID: 0}
   userPage: {fileID: 165399016}
   usernameText: {fileID: 1211751102}
   goldText: {fileID: 561609390}

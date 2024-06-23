@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu/Shop.unity
     guid: d41b599d82047a0458893598e112eaa4
+  - enabled: 1
+    path: Assets/Scenes/StartMenu/Help/HelpBtn.unity
+    guid: d46faa8b6b03f4790b8f92a6c4efbe3a
+  - enabled: 1
+    path: Assets/Scenes/StartMenu/Help/HelpBtn 1.unity
+    guid: 2d2b70b2907bc4f5587fbccee34477fc
+  - enabled: 1
+    path: Assets/Scenes/StartMenu/Help/HelpBtn 2.unity
+    guid: 2fa0f5042730745e1b34206a03e5bcd3
   m_configObjects: {}
