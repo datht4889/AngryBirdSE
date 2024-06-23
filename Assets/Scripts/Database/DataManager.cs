@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class DataManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DataManager : MonoBehaviour
 
     public string UserID;
     public DatabaseReference dbReference;
+    public Dictionary<string, string> TopUser = new Dictionary<string, string>(); 
 
     void Awake()
     {
@@ -204,6 +206,21 @@ public class DataManager : MonoBehaviour
     public void LogOut(){
         OpenLogIn();
     }
+
+    public IEnumerator FetchTopUsers()
+    {   
+        var topUser = dbReference.Child("users").OrderByChild("gold").LimitToLast(4).GetValueAsync();
+        yield return new WaitUntil(predicate: () => topUser.IsCompleted);
+        DataSnapshot snapshot = topUser.Result;
+        foreach (DataSnapshot userSnapshot in snapshot.Children)
+        {
+            string username = userSnapshot.Child("username").Value.ToString();
+            string score = userSnapshot.Child("gold").Value.ToString();
+            TopUser.Add(username, score);
+            Debug.LogError(username + score);
+        }
+    }
+       
 
     public IEnumerator GetName(Action<string> onCallback)
     {

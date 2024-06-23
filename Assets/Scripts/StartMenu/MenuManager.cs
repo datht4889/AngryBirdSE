@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class MenuManager : MonoBehaviour
 {
@@ -60,6 +61,17 @@ public class MenuManager : MonoBehaviour
     public void LogOut(){
         // Load Log in scene
         SceneManager.LoadScene("Assets/Scenes/StartMenu/Login.unity",LoadSceneMode.Single);
+    }
+
+    public IEnumerator OpenLeaderBoard(){
+        // SceneManager.LoadScene("Assets/Scenes/StartMenu/Leaderboard.unity",LoadSceneMode.Single);
+        StartCoroutine(DataManager.dataManager.FetchTopUsers());
+        yield return new WaitForSeconds(2);
+        Debug.LogError(DataManager.dataManager.TopUser.Count);
+        foreach (KeyValuePair<string, string> item in DataManager.dataManager.TopUser)
+        {
+            Debug.LogError(item.Key + "\t" + item.Value);
+        }
     }
 
     public void OpenShop(){

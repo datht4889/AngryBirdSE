@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Map/Congratulation.unity
     guid: 7b74812cda6db4055ad04eb10208ff38
   - enabled: 1
+    path: Assets/Scenes/StartMenu/Leaderboard.unity
+    guid: ef388f62e33e347c6b68a59a799ec564
+  - enabled: 1
     path: Assets/Scenes/StartMenu/AmmoSelect.unity
     guid: 324ad441e6e614658af6c6e304f399fc
   - enabled: 1
