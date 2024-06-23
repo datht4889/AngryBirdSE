@@ -52,4 +52,7 @@ public class MenuManager : MonoBehaviour
         Panel.GetComponent<Animator>().SetTrigger("Unmute");
         
     }
+    public static void HelpBtn(){
+        SceneManager.LoadScene(5,LoadSceneMode.Single);
+    }
 }
