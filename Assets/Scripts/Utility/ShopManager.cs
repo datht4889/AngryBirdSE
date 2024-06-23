@@ -16,15 +16,20 @@ public class ShopManager : MonoBehaviour
 
     public ShopItem[] shopItems = new ShopItem[2];
 
-    public float money;
+    public int money;
     public Text moneyTxt;
+    public static ShopManager instances;
+    private void Awake() { 
+        if (instances == null)
+        {
+            instances = this;
+        }
 
-    void Start()
-    {
-        moneyTxt.text = money.ToString();
         StartCoroutine(DataManager.dataManager.GetAmmo("biggerAmmo", (bool purchase1) =>
         {
             shopItems[0] = new ShopItem { id = 1, name = "biggerAmmo", price = 500, purchased = purchase1 };
+            
+            print(shopItems[0].price);
         }));
 
         StartCoroutine(DataManager.dataManager.GetAmmo("explosionAmmo", (bool purchase2) =>
@@ -34,7 +39,10 @@ public class ShopManager : MonoBehaviour
         StartCoroutine(DataManager.dataManager.GetGold((int gold) =>
         {
             money = gold;
+            print("tien" + money.ToString());
+            moneyTxt.text = money.ToString();
         }));
+        
     }
 
     public void Buy()
@@ -45,10 +53,15 @@ public class ShopManager : MonoBehaviour
 
         if (!selectedItem.purchased && money >= selectedItem.price)
         {
+            print(money);
+            print(selectedItem.price);
+            print(selectedItem.purchased.ToString() + " " + selectedItem.name);
             money -= selectedItem.price;
             shopItems[itemId - 1].purchased = true;
-            DataManager.dataManager.UpdateAmmo(shopItems[itemId - 1].name, shopItems[itemId - 1].purchased);
+            DataManager.dataManager.UpdateAmmo(shopItems[itemId - 1].name);
             moneyTxt.text = money.ToString();
+            DataManager.dataManager.UpdateGold(-selectedItem.price);
+            print(selectedItem.purchased.ToString() + " " + selectedItem.name);
         }
     }
 

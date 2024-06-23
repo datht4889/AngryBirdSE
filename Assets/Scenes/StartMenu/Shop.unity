@@ -238,7 +238,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -274,7 +274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 775, y: 455}
+  m_AnchoredPosition: {x: 748, y: 428}
   m_SizeDelta: {x: 230.16, y: 123.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &153990568
@@ -2891,7 +2891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d11d35c97b0e44d834706408a129ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 10000
+  money: 0
   moneyTxt: {fileID: 32528257}
 --- !u!4 &1824771528
 Transform:
