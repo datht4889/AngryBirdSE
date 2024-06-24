@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13365977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 788084559039541666, guid: 72a19e01d828ea143a42437589dfea9f, type: 3}
+  m_PrefabInstance: {fileID: 519351998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &62138983 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7981663715215181567, guid: 72a19e01d828ea143a42437589dfea9f, type: 3}
@@ -2761,8 +2766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxNumberOfAmmos: 3
-  MAX_SCORE: 2600
-  _restartScreenObject: {fileID: 0}
+  _restartScreenObject: {fileID: 13365977}
   _star1: {fileID: 519352006}
   _star2: {fileID: 519352005}
   _star3: {fileID: 519352004}
