@@ -11,12 +11,12 @@ public class Help3 : MonoBehaviour
 
     public static void LoadStart()
     {
-        SceneManager.LoadScene(0,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/StartScene.unity",LoadSceneMode.Single);
     }
 
     public static void PrevHelp1()
     {
-        SceneManager.LoadScene(12,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/Help/HelpBtn 1.unity",LoadSceneMode.Single);
     }
 
 }

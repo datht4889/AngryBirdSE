@@ -13,16 +13,16 @@ public class Help2 : MonoBehaviour
 
     public static void LoadStart()
     {
-        SceneManager.LoadScene(0,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/StartScene.unity",LoadSceneMode.Single);
     }
 
     public static void PrevHelp1()
     {
-        SceneManager.LoadScene(11,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/Help/HelpBtn.unity",LoadSceneMode.Single);
     }
 
     public static void NextHelp2(){
-         SceneManager.LoadScene(13,LoadSceneMode.Single);
+         SceneManager.LoadScene("Assets/Scenes/StartMenu/Help/HelpBtn 2.unity",LoadSceneMode.Single);
     }
 
 }
