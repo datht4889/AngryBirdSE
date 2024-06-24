@@ -1669,7 +1669,7 @@ MonoBehaviour:
   slingShotArea: {fileID: 862577826}
   idleCam: {fileID: 1692786118}
   followCam: {fileID: 1639136070}
-  maxDragDistance: 1000
+  maxDragDistance: 2000
   dragSensitivity: 0.01
 --- !u!4 &637580955
 Transform:

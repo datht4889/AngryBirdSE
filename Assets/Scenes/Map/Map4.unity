@@ -401,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 183605096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3771979, y: -0.67, z: -12.591164}
+  m_LocalPosition: {x: 6.82, y: -0.67, z: -12.591164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2744,7 +2744,7 @@ MonoBehaviour:
   slingShotArea: {fileID: 1410821666}
   idleCam: {fileID: 1902083362}
   followCam: {fileID: 2060931026}
-  maxDragDistance: 1000
+  maxDragDistance: 2000
   dragSensitivity: 0.01
 --- !u!4 &944040381
 Transform:
