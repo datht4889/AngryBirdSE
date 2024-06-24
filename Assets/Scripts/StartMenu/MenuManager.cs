@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
 
     public static void Help()
     {
-        SceneManager.LoadScene(11,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/Help/HelpBtn.unity",LoadSceneMode.Single);
     }
 
     public static void PlayDefault()

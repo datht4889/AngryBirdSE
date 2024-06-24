@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
 
     public static void LoadEnd()
     {
-        SceneManager.LoadScene("Assets/Scenes/StartMenu/Congratulation.unity",LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/Map/Congratulation.unity",LoadSceneMode.Single);
     }
 
     public static void LoadMap1()

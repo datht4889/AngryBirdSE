@@ -117,7 +117,7 @@ public class DataManager : MonoBehaviour
                                 logInFailed.text = "Login successful!";
                                 
                                 // StartScene
-                                SceneManager.LoadScene(0,LoadSceneMode.Single);
+                                SceneManager.LoadScene("Assets/Scenes/StartMenu/StartScene.unity",LoadSceneMode.Single);
                                 Time.timeScale = 1;
                             }
                             else
