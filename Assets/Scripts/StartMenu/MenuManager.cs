@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
 
     public static void LoadLevel()
     {
-        SceneManager.LoadScene(1,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/LevelSelect.unity",LoadSceneMode.Single);
     }
 
     public static void Help()

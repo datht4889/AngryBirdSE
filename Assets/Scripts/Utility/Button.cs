@@ -35,7 +35,7 @@ public class Button : MonoBehaviour
     }
 
     public void Exit2Menu(){
-        SceneManager.LoadScene(0,LoadSceneMode.Single);
+        SceneManager.LoadScene("Assets/Scenes/StartMenu/StartScene.unity",LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 

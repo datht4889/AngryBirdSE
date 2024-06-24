@@ -91,7 +91,7 @@ public class SelectAmmoManager : MonoBehaviour
     public void PlayDefault()
     {   if (currentNumberOfAmmo == maxNumberOfAmmo)
         {
-            SceneManager.LoadScene(2, LoadSceneMode.Single);
+            SceneManager.LoadScene("Assets/Scenes/StartMenu/LevelSelect.unity", LoadSceneMode.Single);
             Time.timeScale = 1;
         }
        
