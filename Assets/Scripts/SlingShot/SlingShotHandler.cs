@@ -70,10 +70,10 @@ public class SlingShotHandler : MonoBehaviour
     private void Update()
     {
         bool isTouching = Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
-        bool isClicking = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
+        
 
         
-        if ((isClicking || isTouching)  && slingShotArea.isWithinSlingshotArea())
+        if ( isTouching  && slingShotArea.isWithinSlingshotArea())
         {
             isShooting = true;
             cameraManager.SwitchToFollowCam(spawnedAmmo.transform);
@@ -85,8 +85,7 @@ public class SlingShotHandler : MonoBehaviour
             PositionAndRotateAmmo();
         }
 
-        bool wasReleased = (Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame) ||
-                           (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasReleasedThisFrame);
+        bool wasReleased = (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasReleasedThisFrame);
 
         if (wasReleased && ammoOnSlingShot && isShooting)
         {
@@ -117,14 +116,9 @@ public class SlingShotHandler : MonoBehaviour
     {
         Vector2 touchPosition;
 
-        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
-        {
-            touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
-        }
-        else
-        {
-            touchPosition = Mouse.current.position.ReadValue();
-        }
+        
+        touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+        
 
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(touchPosition);
         slingShotLinesPosition = (Vector2)centerPosition.position + Vector2.ClampMagnitude((worldPosition - centerPosition.position), maxDistance);

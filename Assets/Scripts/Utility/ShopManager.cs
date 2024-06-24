@@ -27,14 +27,14 @@ public class ShopManager : MonoBehaviour
 
         StartCoroutine(DataManager.dataManager.GetAmmo("biggerAmmo", (bool purchase1) =>
         {
-            shopItems[0] = new ShopItem { id = 1, name = "biggerAmmo", price = 500, purchased = purchase1 };
+            shopItems[0] = new ShopItem { id = 1, name = "biggerAmmo", price = 2000, purchased = purchase1 };
             
             print(shopItems[0].price);
         }));
 
         StartCoroutine(DataManager.dataManager.GetAmmo("explosionAmmo", (bool purchase2) =>
         {
-            shopItems[1] = new ShopItem { id = 1, name = "explosionAmmo", price = 500, purchased = purchase2 };
+            shopItems[1] = new ShopItem { id = 1, name = "explosionAmmo", price = 3000, purchased = purchase2 };
         }));
         StartCoroutine(DataManager.dataManager.GetGold((int gold) =>
         {

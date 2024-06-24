@@ -24,15 +24,10 @@ public class CameraManager : MonoBehaviour
     private void Update()
     {   if (!SlingShotHandler.instances.isShooting)
         {
-            // Handle touch input if on mobile or mouse input if on PC
-            if (Input.touchCount > 0)
-            {
+            
                 HandleTouchCameraDragging();
-            }
-            else
-            {
-                HandleMouseCameraDragging();
-            }
+           
+            
         }
     }
 
@@ -49,30 +44,6 @@ public class CameraManager : MonoBehaviour
         idleCam.enabled = false;
     }
 
-    private void HandleMouseCameraDragging()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            isDragging = true;
-            dragStartPosition = Input.mousePosition;
-        }
-
-        if (Input.GetMouseButton(0) && isDragging)
-        {
-            Vector3 dragCurrentPosition = Input.mousePosition;
-            Vector3 dragOffset = -dragCurrentPosition + dragStartPosition;
-            dragOffset = new Vector3(dragOffset.x, 0f, 0f); 
-            dragOffset = Vector3.ClampMagnitude(dragOffset, maxDragDistance);
-
-            idleCam.transform.position = initialPosition + dragOffset * dragSensitivity; // Adjust the multiplier for sensitivity
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-            StartCoroutine(ResetCameraPosition());
-        }
-    }
 
     private void HandleTouchCameraDragging()
     {
@@ -91,7 +62,7 @@ public class CameraManager : MonoBehaviour
             dragOffset = new Vector3(dragOffset.x, 0f, 0f);
             dragOffset = Vector3.ClampMagnitude(dragOffset, maxDragDistance);
 
-            idleCam.transform.position = initialPosition + dragOffset * dragSensitivity; // Adjust the multiplier for sensitivity
+            idleCam.transform.position = initialPosition - dragOffset * dragSensitivity; // Adjust the multiplier for sensitivity
         }
 
         if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
